@@ -1,4 +1,4 @@
-n = 2
+n = 10
 NP = 10 * n
 CR = 0.9
 F = 0.8
@@ -22,7 +22,7 @@ class solution:
         a = 20
         b = 0.2
         c = 2 * np.pi
-        return -a * np.exp(-b * np.linalg.norm(self.value)) - np.exp(np.sum(np.cos(c * self.value)) / n) + a + np.exp(1)
+        return a * np.exp(-b * np.linalg.norm(self.value) / n) + np.exp(np.sum(np.cos(c * self.value)) / n) - a - np.exp(1)
     
     def mutate(self, a, b, c):
         y = a.value + F * (b.value - c.value)
