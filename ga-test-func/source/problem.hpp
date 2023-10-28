@@ -53,7 +53,6 @@ struct Problem
             while (current_gen < m_generation_count)
             {
                 current_gen++;
-                // Cache fitness for later operations
                 crossover();
                 select();
                 if (m_verbose)
