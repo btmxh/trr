@@ -1,0 +1,10 @@
+300
+100
+100
+0.2F
+///////////
+pop_size
+crossover_count
+generation_count
+mutation_rate
+///////////

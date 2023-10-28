@@ -1,0 +1,4 @@
+# Binary folder
+build/*
+# Hyper parameters file
+!build/config.txt
