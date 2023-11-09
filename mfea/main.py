@@ -82,7 +82,7 @@ class Problem:
     def __crossover__(self) -> list:
         res = []
         for _ in range(self.__crossover_count):
-            pa = self.__P[np.random.randint(0, self.__excel_threshold)]     # pa is a "excellent" individual
+            pa = self.__P[np.random.randint(0, self.__excel_threshold)]     # pa is an "excellent" individual
             pb = self.__P[np.random.randint(0, self.__pop_size)]            # pb is a random individual
             offsprings = []
             can_mate = pa.skill_factor == pb.skill_factor or np.random.rand() < self.__rmp
@@ -118,7 +118,8 @@ class Problem:
         for x in self.__P:
             if x.skill_factor == i:
                 return x
-        print(f"Best individual of {i + 1}-th task not found")
+        print(f"Error: best individual of {i + 1}-th task not found")
+        return self.__P[0]
 
     def solve(self, problem : str):
         self.__problems = problems.problems[problem]
