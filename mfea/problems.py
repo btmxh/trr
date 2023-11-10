@@ -1,4 +1,6 @@
+from typing import Callable, Optional, Self, Tuple
 import numpy as np
+from scipy.stats import special_ortho_group
 
 def sphere(x, d):
     return np.dot(x[:d], x[:d])
@@ -40,14 +42,65 @@ def weiertrass(x,d):
     
     return sum
 
-problems = {
-    'CI+HS': { 'functions': [griewank, rastrign], 'dimensions': [50, 50], 'domains': [(-100, 100), (-50, 50)] },
-    'CI+MS': { 'functions': [ackley, rastrign], 'dimensions': [50, 50], 'domains': [(-50, 50), (-50, 50)]},
-    'CI+LS': { 'functions': [ackley, schwefel], 'dimensions': [50, 50], 'domains': [(-50, 50), (-500, 500)]},
-    'PI+HS': { 'functions': [rastrign, sphere], 'dimensions': [50, 50], 'domains': [(-50, 50), (-100, 100)]},
-    'PI+MS': { 'functions': [ackley, rosenbrock], 'dimensions': [50, 50], 'domains': [(-50, 50), (-50, 50)]},
-    'PI+LS': { 'functions': [ackley, weiertrass], 'dimensions': [50, 25], 'domains': [(-50, 50), (-0.5, 0.5)]},
-    'NI+HS': { 'functions': [rosenbrock, rastrign], 'dimensions': [50, 50], 'domains': [(-50, 50), (-50, 50)]},
-    'NI+MS': { 'functions': [griewank, weiertrass], 'dimensions': [50, 25], 'domains': [(-100, 100), (-0.5, 0.5)]},
-    'NI+LS': { 'functions': [rastrign, schwefel], 'dimensions': [50, 50], 'domains': [(-50, 50), (-500, 500)]}
-}
+ObjectiveFunction = Callable[[np.ndarray, int], float]
+class Task:
+    objective_fn: ObjectiveFunction
+    dimensions: int
+    domain: Tuple[float, float]
+    rotation_matrix: Optional[np.ndarray]
+    translation: Optional[np.ndarray]
+
+    def __init__(self, function: ObjectiveFunction, dimensions: int, domain: Tuple[float, float], has_rotation: bool = True, translation: Optional[np.ndarray] = None) -> None:
+        self.objective_fn = function
+        self.dimensions = dimensions
+        self.domain = domain
+        self.rotation_matrix = np.identity(dimensions) if has_rotation else None
+        self.translation = translation
+
+    def map_domain_01(self, vec: np.ndarray) -> np.ndarray:
+        min, max = self.domain
+        return vec[:self.dimensions] * (max - min) + min
+
+    def generate_task(self):
+        task = Task(self.objective_fn, self.dimensions, self.domain)
+        if self.rotation_matrix is not None:
+            task.rotation_matrix = special_ortho_group.rvs(self.dimensions)
+        return task
+    
+    def evaluate(self, vec: np.ndarray) -> float:
+        vec = self.map_domain_01(vec)
+        if self.translation is not None:
+            vec += self.translation
+        if self.rotation_matrix is not None:
+            vec = np.matmul(self.rotation_matrix, vec)
+        return self.objective_fn(vec, self.dimensions)
+
+class Problem:
+    name: str
+    tasks: list[Task]
+
+    def __init__(self, name: str, *tasks: Task) -> None:
+        self.name = name
+        self.tasks = list(tasks)
+
+    def generate_random(self) -> Self:
+        return type(self)(self.name, *[task.generate_task() for task in self.tasks])
+    
+    def max_dimensions(self) -> int:
+        return max(map(lambda task: task.dimensions, self.tasks))
+
+def generate_problems():
+    return { problem.name: problem.generate_random() for problem in [
+        Problem("CI+HS", Task(griewank, 50, (-100, 100)), Task(rastrign, 50, (-50, 50))),
+        Problem("CI+MS", Task(ackley, 50, (-50, 50)), Task(rastrign, 50, (-50, 50))),
+        Problem("CI+LS", Task(ackley, 50, (-50, 50)), Task(schwefel, 50, (-500, 500), has_rotation=False)),
+        Problem("PI+HS", Task(rastrign, 50, (-50, 50)), Task(sphere, 50, (-100, 100), has_rotation=False, translation=np.array([0] * 25 + [-20] * 25))),
+        Problem("PI+MS", Task(ackley, 50, (-50, 50)), Task(rosenbrock, 50, (-50, 50), has_rotation=False)),
+        Problem("PI+LS", Task(ackley, 50, (-50, 50)), Task(weiertrass, 50, (-0.5, 0.5))),
+        Problem("NI+HS", Task(rosenbrock, 50, (-50, 50), has_rotation=False), Task(rastrign, 50, (-50, 50))),
+        Problem("NI+MS", Task(griewank, 50, (-100, 100), translation=np.array([-10] * 50)), Task(weiertrass, 25, (-0.5, 0.5))),
+        Problem("NI+LS", Task(rastrign, 50, (-50, 50)), Task(schwefel, 50, (-500, 500), has_rotation=False)),   
+    ]}
+
+def generate_problem(name: str):
+    return generate_problems()[name]
