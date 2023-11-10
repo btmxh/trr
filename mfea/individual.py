@@ -25,6 +25,8 @@ class Individual:
         new_chromosomes = np.clip(self.value + np.random.normal(0, sigma, self.value.size), 0, 1)
         return self.copy(new_chromosomes)
         
+    # Somewhat misleading, this function creates a new individual with the same skill factor as `self`
+    # If `new_chromosomes` is not provided, this has the same effect as cloning the individual
     def copy(self, new_chromosomes: Optional[np.ndarray] = None) -> Self:
         if new_chromosomes is None:
             new_chromosomes = self.value.copy()
