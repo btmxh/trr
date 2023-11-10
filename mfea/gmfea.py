@@ -1,7 +1,8 @@
+from typing import Optional, Self, Tuple
 import numpy as np
 import random
-from mfea.problems import Problem
-from mfea.solver import Individual
+from problems import Problem
+from individual import Individual
 
 class DecisionVariableTranslationStrategy:
     K: int
@@ -17,7 +18,7 @@ class DecisionVariableTranslationStrategy:
         self.phi = phi
         self.scale_factor = scale_factor
 
-    def update(self, population: list[Individual], gen: int, max_gen: int) -> list[Individual]:
+    def update(self, population: list[Individual], gen: int, max_gen: int) -> Tuple[list[Individual], Optional[Self]]:
         D_max = population[0].value.size
         new_population = []
         if gen > self.phi:
@@ -33,11 +34,16 @@ class DecisionVariableTranslationStrategy:
                     m_k /= int(self.mu * len(population))
                     d_k = self.scale_factor * alpha * (cp - m_k)
                     self.translations.append(d_k)
-            for individual in population:
-                new_value = individual.value + self.translations[individual.skill_factor]
-                new_population.append(individual.copy(new_value))
-            return new_population
-        return population
+            if len(self.translations) > 0:
+                for individual in population:
+                    new_value = individual.value + self.translations[individual.skill_factor]
+                    new_population.append(individual.copy(new_value))
+                return new_population, self
+        return population, None
+
+    def translate_back(self, individual: Individual):
+        new_value = individual.value - self.translations[individual.skill_factor]
+        return individual.copy(new_value)
 
 class DecisionVariableShufflingStrategy:
     def __init__(self):
@@ -59,11 +65,25 @@ class DecisionVariableShufflingStrategy:
             for i in range(D1):
                 p.value[L1[i]] = p1.value[i]
             return p, p2, L1, L2
-        
-        if D1 > D2:
+        else:
             same_skill_factors = [p for p in population if p.skill_factor == p1.skill_factor]
             p = random.sample(same_skill_factors, 1)[0].copy()
             random.shuffle(L2)
             for i in range(D2):
                 p.value[L2[i]] = p2.value[i]
             return p1, p, L1, L2
+    
+    def shuffle_back(self, individual: Individual, permutation: list[int]):
+        inverse = np.argsort(permutation)
+        new_individual = individual.copy()
+        for i in range(len(inverse)):
+            new_individual.value[inverse[i]] = individual.value[i]
+        return new_individual
+
+class GMFEA:
+    dvts: DecisionVariableTranslationStrategy
+    dvss: DecisionVariableShufflingStrategy
+
+    def __init__(self, dvts: DecisionVariableTranslationStrategy, dvss: DecisionVariableShufflingStrategy) -> None:
+        self.dvts = dvts
+        self.dvss = dvss

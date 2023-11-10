@@ -1,5 +1,6 @@
 import sys
 import numpy as np
+from gmfea import GMFEA, DecisionVariableShufflingStrategy, DecisionVariableTranslationStrategy
 from solver import Solver
 from problems import generate_problem
 
@@ -9,7 +10,10 @@ def sample_runs(name: str, num_runs=20):
     current_squared_sum = [0.0] * len(problem.tasks)
     for i in range(num_runs):
         print(f"Run #{i + 1}:")
-        solver = Solver(name, pop_size=100, max_gen=10000000, rmp=0.3)
+        solver = Solver(name, pop_size=100, max_gen=1000, rmp=0.3, crossover_count=100, gmfea=GMFEA(
+            dvts = DecisionVariableTranslationStrategy(len(problem.tasks), 0.4, 20, 200),
+            dvss = DecisionVariableShufflingStrategy(),
+        ))
         solver.solve()
         for task_index in range(len(problem.tasks)):
             _, value = solver.get_result(task_index)
