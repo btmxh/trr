@@ -56,7 +56,7 @@ class DecisionVariableShufflingStrategy:
         L1 = list(range(D_max))
         L2 = list(range(D_max))
         if D1 == D2:
-            return p1, p2, L1, L2
+            return p1, p2, None, None, None
 
         if D1 < D2:
             same_skill_factors = [p for p in population if p.skill_factor == p2.skill_factor]
@@ -64,14 +64,14 @@ class DecisionVariableShufflingStrategy:
             random.shuffle(L1)
             for i in range(D1):
                 p.value[L1[i]] = p1.value[i]
-            return p, p2, L1, L2
+            return p, p2, self, L1, L2
         else:
             same_skill_factors = [p for p in population if p.skill_factor == p1.skill_factor]
             p = random.sample(same_skill_factors, 1)[0].copy()
             random.shuffle(L2)
             for i in range(D2):
                 p.value[L2[i]] = p2.value[i]
-            return p1, p, L1, L2
+            return p1, p, self, L1, L2
     
     def shuffle_back(self, individual: Individual, permutation: list[int]):
         inverse = np.argsort(permutation)

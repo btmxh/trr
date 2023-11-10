@@ -1,6 +1,6 @@
 from typing import Optional, Self, Tuple
 import numpy as np
-from gmfea import GMFEA, DecisionVariableTranslationStrategy
+from gmfea import GMFEA, DecisionVariableShufflingStrategy, DecisionVariableTranslationStrategy
 from problems import Problem, generate_problem
 from individual import Individual
 
@@ -69,17 +69,14 @@ class Solver:
                 L = np.random.choice(range(self.D_max), int(self.D_max / 2), replace = False)
                 for i in L:
                     arr[i] = pb.value[i]
-                c = Individual(arr, self.k)
+                imitate_parent = pa if np.random.rand() < 0.5 else pb
+                c = imitate_parent.copy(arr)
                 # c imitates pa or pb, so we only calculate its fitness to a task
-                c.skill_factor = pa.skill_factor if np.random.rand() < 0.5 else pb.skill_factor
-                self.evaluate(c, c.skill_factor)
                 offsprings.append(c)
             return offsprings[0], offsprings[1]
         else:
             ca = pa.mutate()
             cb = pb.mutate()
-            self.evaluate(ca, ca.skill_factor)
-            self.evaluate(cb, cb.skill_factor)
             return ca, cb
 
     def translate_population(self, gen: int, max_gen: int) -> Tuple[list[Individual], Optional[DecisionVariableTranslationStrategy]]:
@@ -87,26 +84,28 @@ class Solver:
             return self.P, None
         return self.gmfea.dvts.update(self.P, gen, max_gen)
 
-    def shuffle_parents(self, P: list[Individual], pa: Individual, pb: Individual) -> Tuple[Individual, Individual, Optional[list[int]], Optional[list[int]]]:
+    def shuffle_parents(self, P: list[Individual], pa: Individual, pb: Individual) -> Tuple[Individual, Individual, Optional[DecisionVariableShufflingStrategy], Optional[list[int]], Optional[list[int]]]:
         if self.gmfea is None:
-            return pa, pb, None, None
+            return pa, pb, None, None, None
         return self.gmfea.dvss.shuffle(self.problem, P, pa, pb)
 
     def crossover(self, gen: int, max_gen: int) -> list[Individual]:
-        res = []
+        res: list[Individual] = []
         for _ in range(self.crossover_count):
             P, dvts = self.translate_population(gen, max_gen)
             pa = P[np.random.randint(0, self.excel_threshold)]     # pa is an "excellent" individual
             pb = P[np.random.randint(0, self.pop_size)]            # pb is a random individual
-            pa, pb, L1, L2 = self.shuffle_parents(P, pa, pb)
+            pa, pb, dvss, L1, L2 = self.shuffle_parents(P, pa, pb)
             o1, o2 = self.assortive_mating(pa, pb)
             if dvts is not None:
                 o1 = dvts.translate_back(o1)
                 o2 = dvts.translate_back(o2)
-            if L1 is not None and L2 is not None and self.gmfea is not None:
-                o1 = self.gmfea.dvss.shuffle_back(o1, L1)
-                o2 = self.gmfea.dvss.shuffle_back(o2, L2)
+            if L1 is not None and L2 is not None and dvss is not None:
+                o1 = dvss.shuffle_back(o1, L1)
+                o2 = dvss.shuffle_back(o2, L2)
             res += [o1, o2]
+        for o in res:
+            self.evaluate(o, o.skill_factor)
         return res
 
     # Find the best individual regarding task i
