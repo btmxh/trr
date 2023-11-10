@@ -41,13 +41,13 @@ def weiertrass(x,d):
     return sum
 
 problems = {
-    'CI+HS': { 'functions': [griewank, rastrign], 'dimensions': [50, 50] },
-    'CI+MS': { 'functions': [ackley, rastrign], 'dimensions': [50, 50] },
-    'CI+LS': { 'functions': [ackley, schwefel], 'dimensions': [50, 50] },
-    'PI+HS': { 'functions': [rastrign, sphere], 'dimensions': [50, 50] },
-    'PI+MS': { 'functions': [ackley, rosenbrock], 'dimensions': [50, 50] },
-    'PI+LS': { 'functions': [ackley, weiertrass], 'dimensions': [50, 25] },
-    'NI+HS': { 'functions': [rosenbrock, rastrign], 'dimensions': [50, 50] },
-    'NI+MS': { 'functions': [griewank, weiertrass], 'dimensions': [50, 25] },
-    'NI+LS': { 'functions': [rastrign, schwefel], 'dimensions': [50, 50] },
+    'CI+HS': { 'functions': [griewank, rastrign], 'dimensions': [50, 50], 'domains': [(-100, 100), (-50, 50)] },
+    'CI+MS': { 'functions': [ackley, rastrign], 'dimensions': [50, 50], 'domains': [(-50, 50), (-50, 50)]},
+    'CI+LS': { 'functions': [ackley, schwefel], 'dimensions': [50, 50], 'domains': [(-50, 50), (-500, 500)]},
+    'PI+HS': { 'functions': [rastrign, sphere], 'dimensions': [50, 50], 'domains': [(-50, 50), (-100, 100)]},
+    'PI+MS': { 'functions': [ackley, rosenbrock], 'dimensions': [50, 50], 'domains': [(-50, 50), (-50, 50)]},
+    'PI+LS': { 'functions': [ackley, weiertrass], 'dimensions': [50, 25], 'domains': [(-50, 50), (-0.5, 0.5)]},
+    'NI+HS': { 'functions': [rosenbrock, rastrign], 'dimensions': [50, 50], 'domains': [(-50, 50), (-50, 50)]},
+    'NI+MS': { 'functions': [griewank, weiertrass], 'dimensions': [50, 25], 'domains': [(-100, 100), (-0.5, 0.5)]},
+    'NI+LS': { 'functions': [rastrign, schwefel], 'dimensions': [50, 50], 'domains': [(-50, 50), (-500, 500)]}
 }
