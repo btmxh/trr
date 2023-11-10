@@ -1,5 +1,4 @@
-import sys
-from typing import Self, Tuple
+from typing import Optional, Self, Tuple
 import numpy as np
 from problems import Problem, generate_problem
 
@@ -20,13 +19,17 @@ class Individual:
         self.scalar_fitness = 0
 
     # Gaussian mutation
-    def _mutate(self) -> Self:
+    def mutate(self) -> Self:
         low = np.min(self.value)
         high = np.max(self.value)
         sigma = (high - low) / 6
         new_chromosomes = np.clip(self.value + np.random.normal(0, sigma, self.value.size), 0, 1)
-        return type(self)(new_chromosomes, self.task_fitness.size, self.skill_factor)
+        return self.copy(new_chromosomes)
         
+    def copy(self, new_chromosomes: Optional[np.ndarray] = None) -> Self:
+        if new_chromosomes is None:
+            new_chromosomes = self.value.copy()
+        return type(self)(new_chromosomes, self.task_fitness.size, self.skill_factor)
 
 # Algorithm implementation
 class Solver:
@@ -102,8 +105,8 @@ class Solver:
                     self.evaluate(c, c.skill_factor)
                     offsprings.append(c)
             else:
-                ca = pa._mutate()
-                cb = pb._mutate()
+                ca = pa.mutate()
+                cb = pb.mutate()
                 self.evaluate(ca, ca.skill_factor)
                 self.evaluate(cb, cb.skill_factor)
                 offsprings.append(ca)
