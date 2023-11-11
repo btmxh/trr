@@ -132,6 +132,11 @@ class Solver:
         return self.P[0]
 
     def solve(self):
+        for result in self.solve_every_gen():
+            for i in range(self.k):
+                print(f"\t* Task {i + 1}: {result[i]}")
+
+    def solve_every_gen(self):
         self.gen_pop()
         self.calc_scalar(self.P)
         for gen in range(self.max_gen):
@@ -142,9 +147,11 @@ class Solver:
             self.calc_scalar(R)
             self.P = R[:self.pop_size]
             print(f"Current generation: {gen + 1}")
+            current_result = []
             for i in range(self.k):
                 x = self.search_best(i)
-                print(f"\t* Task {i + 1}: {x.task_fitness[i]}")
+                current_result.append(x.task_fitness[i])
+            yield current_result
         print("Final result:")
         for i in range(self.k):
             solution, value = self.get_result(i)

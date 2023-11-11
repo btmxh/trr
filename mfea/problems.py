@@ -62,7 +62,7 @@ class Task:
         return vec[:self.dimensions] * (max - min) + min
 
     def generate_task(self):
-        task = Task(self.objective_fn, self.dimensions, self.domain)
+        task = Task(self.objective_fn, self.dimensions, self.domain, translation=self.translation)
         if self.rotation_matrix is not None:
             task.rotation_matrix = special_ortho_group.rvs(self.dimensions)
         return task
