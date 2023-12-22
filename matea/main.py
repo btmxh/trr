@@ -1,6 +1,9 @@
 from matea import MaTEA
 from de import DifferentialEvolution
+from task import Task
 from objective import sphere, ackley
+
+T1 = Task(name="Task 1 (Sphere 50D, no translation)", objective_fn=sphere, input_range=[-100, 100], num_dimensions=50)
 
 solver = MaTEA()
 s10 = DifferentialEvolution(

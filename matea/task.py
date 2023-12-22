@@ -17,29 +17,51 @@ class TaskIterationResult:
         self.best_from_ktc = best_individual.ktc_generation == generation
 
 
-class Task(ABC):
+class Task:
+    name: str
+    objective_fn: Callable[[np.ndarray], float]
+    num_dimensions: int
+    input_range: [float, float]
+    translation: np.ndarray
+    rotation: np.ndarray
+
+    def __init__(self, objective_fn: Callable[[np.ndarray], float], num_dimensions: int, input_range: [float, float],
+                 name: str, translation: Optional[np.ndarray] = None, rotation: Optional[np.ndarray] = None):
+        self.name = name
+        self.objective_fn = objective_fn
+        self.num_dimensions = num_dimensions
+        self.input_range = input_range
+        self.translation = translation or np.zeros(num_dimensions)
+        self.rotation = rotation or np.identity(num_dimensions)
+
+    def evaluate(self, vector: np.ndarray):
+        min, max = self.input_range
+        vector = vector * (max - min) + min
+        vector = self.rotation * vector + self.translation
+        return self.objective_fn(vector)
+
+
+class TaskSolver(ABC):
     task_counter = 1
 
     @staticmethod
     def generate_task_name() -> str:
-        name = f'Task {Task.task_counter}'
-        Task.task_counter += 1
+        name = f'Task {TaskSolver.task_counter}'
+        TaskSolver.task_counter += 1
         return name
 
     name: str
     population: list[Individual]
-    dimensions: int
-    objective_fn: Callable[[np.ndarray], float]
+    task: Task
 
-    def __init__(self, name=None, dimensions=10, objective_fn=sphere):
-        self.name = name or Task.generate_task_name()
-        self.dimensions = dimensions
-        self.objective_fn = objective_fn
+    def __init__(self, task: Task, name=None):
+        self.name = name or task.name or TaskSolver.generate_task_name()
+        self.task = task
         self.population = []
 
     def init_population(self, pop_size=100):
         for _ in range(pop_size):
-            individual = Individual(np.random.random(self.dimensions) * 2 - 1)
+            individual = Individual(np.random.random(self.task.num_dimensions))
             self.evaluate(individual)
             self.population.append(individual)
 
@@ -50,7 +72,8 @@ class Task(ABC):
         return individual.objective_value[self.name]
 
     def do_knowledge_transfer_crossover(self, assist_task: Self, generation: int, ktc_crossover_rate: float) -> TaskIterationResult:
-        num_dimensions = min(self.dimensions, assist_task.dimensions)
+        num_dimensions = min(self.task.num_dimensions,
+                             assist_task.task.num_dimensions)
         original_size = len(self.population)
         children = []
         for parent in self.population:
@@ -72,4 +95,3 @@ class Task(ABC):
 
     @abstractmethod
     def iterate(self, generation: int) -> TaskIterationResult:
-        ...
