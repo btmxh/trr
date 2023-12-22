@@ -18,7 +18,7 @@ def rosenbrock(x: np.ndarray):
     return sum
 
 
-def rastrign(x: np.ndarray):
+def rastrigin(x: np.ndarray):
     d, = x.shape
     return np.sum(x ** 2 - 10 * np.cos(2 * np.pi * x) + 10)
 
@@ -36,7 +36,7 @@ def schwefel(x):
     return 418.9829 * d - np.sum(x[:d] * np.sin(np.absolute(x[:d]) ** (1/2)))
 
 
-def weiertrass(x):
+def weierstrass(x):
     d, = x.shape
     k_max = 20
     a = 0.5
