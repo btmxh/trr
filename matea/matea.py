@@ -93,7 +93,7 @@ class MaTEA:
         return reinforcement_value
 
     def kullback_leibler_divergence(self, p: TaskSolver, q: TaskSolver):
-        num_dimensions = min(p.dimensions, q.dimensions)
+        num_dimensions = min(p.task.num_dimensions, q.task.num_dimensions)
         mean_p, covar_p = self.archives[p.name].get_stats(num_dimensions)
         mean_q, covar_q = self.archives[q.name].get_stats(num_dimensions)
         mean_diff = mean_p - mean_q

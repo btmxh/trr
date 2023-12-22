@@ -1,4 +1,4 @@
-from typing import Self, Callable
+from typing import Self, Callable, Optional
 from abc import ABC, abstractmethod
 from individual import Individual
 from objective import sphere
@@ -31,14 +31,19 @@ class Task:
         self.objective_fn = objective_fn
         self.num_dimensions = num_dimensions
         self.input_range = input_range
-        self.translation = translation or np.zeros(num_dimensions)
-        self.rotation = rotation or np.identity(num_dimensions)
+        self.translation = np.zeros(
+            num_dimensions) if translation is None else translation
+        self.rotation = np.identity(
+            num_dimensions) if rotation is None else rotation
 
     def evaluate(self, vector: np.ndarray):
-        min, max = self.input_range
-        vector = vector * (max - min) + min
-        vector = self.rotation * vector + self.translation
+        vector = vector[:self.num_dimensions]
+        vector = (self.rotation @ self.map_domain_01(vector)) + self.translation
         return self.objective_fn(vector)
+
+    def map_domain_01(self, vec: np.ndarray) -> np.ndarray:
+        min, max = self.input_range
+        return vec * (max - min) + min
 
 
 class TaskSolver(ABC):
@@ -67,9 +72,9 @@ class TaskSolver(ABC):
 
     def evaluate(self, individual: Individual) -> float:
         if self.name not in individual.objective_value:
-            individual.objective_value[self.name] = self.objective_fn(
+            individual.objective_value[self.task.name] = self.task.evaluate(
                 individual.value)
-        return individual.objective_value[self.name]
+        return individual.objective_value[self.task.name]
 
     def do_knowledge_transfer_crossover(self, assist_task: Self, generation: int, ktc_crossover_rate: float) -> TaskIterationResult:
         num_dimensions = min(self.task.num_dimensions,
@@ -85,9 +90,11 @@ class TaskSolver(ABC):
             for i in range(num_dimensions):
                 if np.random.rand() < ktc_crossover_rate or i == k:
                     child.value[i] = assist_parent.value[i]
+            child.value = np.clip(child.value, 0, 1)
             self.evaluate(child)
             children.append(child)
 
+        self.population.extend(children)
         self.population.sort(key=self.evaluate)
         self.population = self.population[:original_size]
 
@@ -95,3 +102,4 @@ class TaskSolver(ABC):
 
     @abstractmethod
     def iterate(self, generation: int) -> TaskIterationResult:
+        ...
