@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{k}{def} \PYG{n+nf}{update\PYGZus{}archive}\PYG{p}{(}\PYG{n}{task}\PYG{p}{):}
+  \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{task}\PYG{o}{.}\PYG{n}{population}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} lặp với mọi cá thể}
+    \PYG{c+c1}{\PYGZsh{} với xác suất `update\PYGZus{}rate`, cho cá thể vào nhật ký}
+    \PYG{k}{if} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{\PYGZlt{}} \PYG{n}{update\PYGZus{}rate}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{task}\PYG{o}{.}\PYG{n}{archive}\PYG{o}{.}\PYG{n}{full}\PYG{p}{():} \PYG{c+c1}{\PYGZsh{} nếu nhệt ký đầy, thay thế cá thể ngẫu nhiên}
+        \PYG{n}{i} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{choice}\PYG{p}{(}\PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{archive}\PYG{p}{)))}
+        \PYG{n}{task}\PYG{o}{.}\PYG{n}{archive}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{x}
+      \PYG{k}{else}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} nếu chưa đầy thì thêm vào nhật ký}
+        \PYG{n}{task}\PYG{o}{.}\PYG{n}{archive} \PYG{o}{+=} \PYG{p}{[}\PYG{n}{x}\PYG{p}{]}
+\end{Verbatim}

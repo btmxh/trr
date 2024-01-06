@@ -1,0 +1,466 @@
+\headcommand {\slideentry {0}{0}{1}{1/1}{}{0}}
+\headcommand {\beamer@framepages {1}{1}}
+\headcommand {\beamer@sectionpages {1}{1}}
+\headcommand {\beamer@subsectionpages {1}{1}}
+\headcommand {\sectionentry {1}{Ứng dụng các cơ chế tiến hóa trong tối ưu}{2}{Ứng dụng các cơ chế tiến hóa trong tối ưu}{0}}
+\headcommand {\beamer@subsectionpages {2}{1}}
+\headcommand {\beamer@subsectionentry {0}{1}{1}{2}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}}
+\headcommand {\slideentry {1}{1}{1}{2/2}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{0}}
+\headcommand {\beamer@framepages {2}{2}}
+\headcommand {\slideentry {1}{1}{1}{2/3}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{0}}
+\headcommand {\beamer@framepages {2}{3}}
+\headcommand {\slideentry {1}{1}{1}{2/4}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{0}}
+\headcommand {\beamer@framepages {2}{4}}
+\headcommand {\slideentry {1}{1}{2}{5/5}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{0}}
+\headcommand {\beamer@framepages {5}{5}}
+\headcommand {\slideentry {1}{1}{3}{6/6}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{0}}
+\headcommand {\beamer@framepages {6}{6}}
+\headcommand {\slideentry {1}{1}{4}{7/7}{Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{0}}
+\headcommand {\beamer@framepages {7}{7}}
+\headcommand {\beamer@subsectionpages {2}{7}}
+\headcommand {\beamer@subsectionentry {0}{1}{2}{8}{Giải thuật tiến hóa (Evolutionary Algorithms)}}
+\headcommand {\slideentry {1}{2}{1}{8/8}{Giải thuật tiến hóa (Evolutionary Algorithms)}{0}}
+\headcommand {\beamer@framepages {8}{8}}
+\headcommand {\slideentry {1}{2}{1}{8/9}{Giải thuật tiến hóa (Evolutionary Algorithms)}{0}}
+\headcommand {\beamer@framepages {8}{9}}
+\headcommand {\slideentry {1}{2}{2}{10/10}{Giải thuật tiến hóa (Evolutionary Algorithms)}{0}}
+\headcommand {\beamer@framepages {10}{10}}
+\headcommand {\slideentry {1}{2}{3}{11/11}{Giải thuật tiến hóa (Evolutionary Algorithms)}{0}}
+\headcommand {\beamer@framepages {11}{11}}
+\headcommand {\beamer@subsectionpages {8}{11}}
+\headcommand {\beamer@subsectionentry {0}{1}{3}{12}{Các khái niệm chung của các giải thuật tiến hóa}}
+\headcommand {\slideentry {1}{3}{1}{12/12}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {12}{12}}
+\headcommand {\slideentry {1}{3}{1}{12/13}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {12}{13}}
+\headcommand {\slideentry {1}{3}{2}{14/14}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {14}{14}}
+\headcommand {\slideentry {1}{3}{3}{15/15}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {15}{15}}
+\headcommand {\slideentry {1}{3}{4}{16/16}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {16}{16}}
+\headcommand {\slideentry {1}{3}{5}{17/17}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {17}{17}}
+\headcommand {\slideentry {1}{3}{6}{18/18}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {18}{18}}
+\headcommand {\slideentry {1}{3}{7}{19/19}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {19}{19}}
+\headcommand {\slideentry {1}{3}{8}{20/20}{Các khái niệm chung của các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {20}{20}}
+\headcommand {\beamer@subsectionpages {12}{20}}
+\headcommand {\beamer@subsectionentry {0}{1}{4}{21}{Đánh giá chung các giải thuật tiến hóa}}
+\headcommand {\slideentry {1}{4}{1}{21/21}{Đánh giá chung các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {21}{21}}
+\headcommand {\slideentry {1}{4}{1}{21/22}{Đánh giá chung các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {21}{22}}
+\headcommand {\slideentry {1}{4}{2}{23/23}{Đánh giá chung các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {23}{23}}
+\headcommand {\slideentry {1}{4}{3}{24/24}{Đánh giá chung các giải thuật tiến hóa}{0}}
+\headcommand {\beamer@framepages {24}{24}}
+\headcommand {\beamer@sectionpages {2}{24}}
+\headcommand {\beamer@subsectionpages {21}{24}}
+\headcommand {\sectionentry {2}{Giải thuật di truyền (Genetic Algorithm)}{25}{Giải thuật di truyền (Genetic Algorithm)}{0}}
+\headcommand {\beamer@subsectionpages {25}{24}}
+\headcommand {\beamer@subsectionentry {0}{2}{1}{25}{Giới thiệu chung}}
+\headcommand {\slideentry {2}{1}{1}{25/25}{Giới thiệu chung}{0}}
+\headcommand {\beamer@framepages {25}{25}}
+\headcommand {\slideentry {2}{1}{1}{25/26}{Giới thiệu chung}{0}}
+\headcommand {\beamer@framepages {25}{26}}
+\headcommand {\slideentry {2}{1}{2}{27/27}{Giới thiệu chung}{0}}
+\headcommand {\beamer@framepages {27}{27}}
+\headcommand {\beamer@subsectionpages {25}{27}}
+\headcommand {\beamer@subsectionentry {0}{2}{2}{28}{Thuật toán chung}}
+\headcommand {\slideentry {2}{2}{1}{28/28}{Thuật toán chung}{0}}
+\headcommand {\beamer@framepages {28}{28}}
+\headcommand {\slideentry {2}{2}{1}{28/29}{Thuật toán chung}{0}}
+\headcommand {\beamer@framepages {28}{29}}
+\headcommand {\slideentry {2}{2}{2}{30/30}{Thuật toán chung}{0}}
+\headcommand {\beamer@framepages {30}{30}}
+\headcommand {\slideentry {2}{2}{3}{31/31}{Thuật toán chung}{0}}
+\headcommand {\beamer@framepages {31}{31}}
+\headcommand {\beamer@subsectionpages {28}{31}}
+\headcommand {\beamer@subsectionentry {0}{2}{3}{32}{Khởi tạo quần thể}}
+\headcommand {\slideentry {2}{3}{1}{32/32}{Khởi tạo quần thể}{0}}
+\headcommand {\beamer@framepages {32}{32}}
+\headcommand {\slideentry {2}{3}{1}{32/33}{Khởi tạo quần thể}{0}}
+\headcommand {\beamer@framepages {32}{33}}
+\headcommand {\slideentry {2}{3}{2}{34/34}{Khởi tạo quần thể}{0}}
+\headcommand {\beamer@framepages {34}{34}}
+\headcommand {\slideentry {2}{3}{3}{35/35}{Khởi tạo quần thể}{0}}
+\headcommand {\beamer@framepages {35}{35}}
+\headcommand {\beamer@subsectionpages {32}{35}}
+\headcommand {\beamer@subsectionentry {0}{2}{4}{36}{Toán tử chọn lọc}}
+\headcommand {\slideentry {2}{4}{1}{36/36}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {36}{36}}
+\headcommand {\slideentry {2}{4}{1}{36/37}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {36}{37}}
+\headcommand {\slideentry {2}{4}{2}{38/38}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {38}{38}}
+\headcommand {\slideentry {2}{4}{3}{39/39}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {39}{39}}
+\headcommand {\slideentry {2}{4}{4}{40/40}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {40}{40}}
+\headcommand {\slideentry {2}{4}{5}{41/41}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {41}{41}}
+\headcommand {\slideentry {2}{4}{6}{42/42}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {42}{42}}
+\headcommand {\slideentry {2}{4}{7}{43/43}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {43}{43}}
+\headcommand {\slideentry {2}{4}{8}{44/44}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {44}{44}}
+\headcommand {\slideentry {2}{4}{9}{45/45}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {45}{45}}
+\headcommand {\slideentry {2}{4}{10}{46/46}{Toán tử chọn lọc}{0}}
+\headcommand {\beamer@framepages {46}{46}}
+\headcommand {\beamer@subsectionpages {36}{46}}
+\headcommand {\beamer@subsectionentry {0}{2}{5}{47}{Toán tử lai ghép}}
+\headcommand {\slideentry {2}{5}{1}{47/47}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {47}{47}}
+\headcommand {\slideentry {2}{5}{1}{47/48}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {47}{48}}
+\headcommand {\slideentry {2}{5}{2}{49/49}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {49}{49}}
+\headcommand {\slideentry {2}{5}{3}{50/50}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {50}{50}}
+\headcommand {\slideentry {2}{5}{4}{51/51}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {51}{51}}
+\headcommand {\slideentry {2}{5}{5}{52/52}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\slideentry {2}{5}{6}{53/53}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {53}{53}}
+\headcommand {\slideentry {2}{5}{7}{54/54}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {54}{54}}
+\headcommand {\slideentry {2}{5}{8}{55/55}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {55}{55}}
+\headcommand {\slideentry {2}{5}{9}{56/56}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {56}{56}}
+\headcommand {\slideentry {2}{5}{10}{57/57}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {57}{57}}
+\headcommand {\slideentry {2}{5}{11}{58/58}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {58}{58}}
+\headcommand {\slideentry {2}{5}{12}{59/59}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {59}{59}}
+\headcommand {\slideentry {2}{5}{13}{60/60}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {60}{60}}
+\headcommand {\slideentry {2}{5}{14}{61/61}{Toán tử lai ghép}{0}}
+\headcommand {\beamer@framepages {61}{61}}
+\headcommand {\beamer@subsectionpages {47}{61}}
+\headcommand {\beamer@subsectionentry {0}{2}{6}{62}{Toán tử đột biến}}
+\headcommand {\slideentry {2}{6}{1}{62/62}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {62}{62}}
+\headcommand {\slideentry {2}{6}{1}{62/63}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {62}{63}}
+\headcommand {\slideentry {2}{6}{2}{64/64}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {64}{64}}
+\headcommand {\slideentry {2}{6}{3}{65/65}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {65}{65}}
+\headcommand {\slideentry {2}{6}{4}{66/66}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {66}{66}}
+\headcommand {\slideentry {2}{6}{5}{67/67}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {67}{67}}
+\headcommand {\slideentry {2}{6}{6}{68/68}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {68}{68}}
+\headcommand {\slideentry {2}{6}{7}{69/69}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {69}{69}}
+\headcommand {\slideentry {2}{6}{8}{70/70}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {70}{70}}
+\headcommand {\slideentry {2}{6}{9}{71/71}{Toán tử đột biến}{0}}
+\headcommand {\beamer@framepages {71}{71}}
+\headcommand {\beamer@subsectionpages {62}{71}}
+\headcommand {\beamer@subsectionentry {0}{2}{7}{72}{Ứng dụng giải thuật di truyền để giải bài toán người bán hàng}}
+\headcommand {\slideentry {2}{7}{1}{72/72}{Ứng dụng giải thuật di truyền để giải bài toán người bán hàng}{0}}
+\headcommand {\beamer@framepages {72}{72}}
+\headcommand {\slideentry {2}{7}{1}{72/73}{Ứng dụng giải thuật di truyền để giải bài toán người bán hàng}{0}}
+\headcommand {\beamer@framepages {72}{73}}
+\headcommand {\slideentry {2}{7}{2}{74/74}{Ứng dụng giải thuật di truyền để giải bài toán người bán hàng}{0}}
+\headcommand {\beamer@framepages {74}{74}}
+\headcommand {\slideentry {2}{7}{3}{75/75}{Ứng dụng giải thuật di truyền để giải bài toán người bán hàng}{0}}
+\headcommand {\beamer@framepages {75}{75}}
+\headcommand {\beamer@sectionpages {25}{75}}
+\headcommand {\beamer@subsectionpages {72}{75}}
+\headcommand {\sectionentry {3}{Tiến hóa vi phân (Differential Evolution)}{76}{Tiến hóa vi phân (Differential Evolution)}{0}}
+\headcommand {\beamer@subsectionpages {76}{75}}
+\headcommand {\beamer@subsectionentry {0}{3}{1}{76}{Giới thiệu và thuật toán chung}}
+\headcommand {\slideentry {3}{1}{1}{76/76}{Giới thiệu và thuật toán chung}{0}}
+\headcommand {\beamer@framepages {76}{76}}
+\headcommand {\slideentry {3}{1}{1}{76/77}{Giới thiệu và thuật toán chung}{0}}
+\headcommand {\beamer@framepages {76}{77}}
+\headcommand {\slideentry {3}{1}{2}{78/78}{Giới thiệu và thuật toán chung}{0}}
+\headcommand {\beamer@framepages {78}{78}}
+\headcommand {\slideentry {3}{1}{3}{79/79}{Giới thiệu và thuật toán chung}{0}}
+\headcommand {\beamer@framepages {79}{79}}
+\headcommand {\beamer@subsectionpages {76}{79}}
+\headcommand {\beamer@subsectionentry {0}{3}{2}{80}{Toán tử lai ghép và đột biến trong DE}}
+\headcommand {\slideentry {3}{2}{1}{80/80}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {80}{80}}
+\headcommand {\slideentry {3}{2}{1}{80/81}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {80}{81}}
+\headcommand {\slideentry {3}{2}{2}{82/82}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {82}{82}}
+\headcommand {\slideentry {3}{2}{3}{83/83}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {83}{83}}
+\headcommand {\slideentry {3}{2}{4}{84/84}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {84}{84}}
+\headcommand {\slideentry {3}{2}{5}{85/85}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {85}{85}}
+\headcommand {\slideentry {3}{2}{6}{86/86}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {86}{86}}
+\headcommand {\slideentry {3}{2}{7}{87/87}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {87}{87}}
+\headcommand {\slideentry {3}{2}{8}{88/88}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {88}{88}}
+\headcommand {\slideentry {3}{2}{9}{89/89}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {89}{89}}
+\headcommand {\slideentry {3}{2}{10}{90/90}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {90}{90}}
+\headcommand {\slideentry {3}{2}{11}{91/91}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {91}{91}}
+\headcommand {\slideentry {3}{2}{12}{92/92}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {92}{92}}
+\headcommand {\slideentry {3}{2}{13}{93/93}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {93}{93}}
+\headcommand {\slideentry {3}{2}{14}{94/94}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {94}{94}}
+\headcommand {\slideentry {3}{2}{15}{95/95}{Toán tử lai ghép và đột biến trong DE}{0}}
+\headcommand {\beamer@framepages {95}{95}}
+\headcommand {\beamer@subsectionpages {80}{95}}
+\headcommand {\beamer@subsectionentry {0}{3}{3}{96}{Ảnh hưởng của các tham số đến DE}}
+\headcommand {\slideentry {3}{3}{1}{96/96}{Ảnh hưởng của các tham số đến DE}{0}}
+\headcommand {\beamer@framepages {96}{96}}
+\headcommand {\slideentry {3}{3}{1}{96/97}{Ảnh hưởng của các tham số đến DE}{0}}
+\headcommand {\beamer@framepages {96}{97}}
+\headcommand {\slideentry {3}{3}{2}{98/98}{Ảnh hưởng của các tham số đến DE}{0}}
+\headcommand {\beamer@framepages {98}{98}}
+\headcommand {\slideentry {3}{3}{3}{99/99}{Ảnh hưởng của các tham số đến DE}{0}}
+\headcommand {\beamer@framepages {99}{99}}
+\headcommand {\slideentry {3}{3}{4}{100/100}{Ảnh hưởng của các tham số đến DE}{0}}
+\headcommand {\beamer@framepages {100}{100}}
+\headcommand {\slideentry {3}{3}{5}{101/101}{Ảnh hưởng của các tham số đến DE}{0}}
+\headcommand {\beamer@framepages {101}{101}}
+\headcommand {\beamer@sectionpages {76}{101}}
+\headcommand {\beamer@subsectionpages {96}{101}}
+\headcommand {\sectionentry {4}{Các vấn đề chung nhất về tối ưu đa nhiệm}{102}{Các vấn đề chung nhất về tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@subsectionpages {102}{101}}
+\headcommand {\beamer@subsectionentry {0}{4}{1}{102}{Tối ưu đa nhiệm}}
+\headcommand {\slideentry {4}{1}{1}{102/102}{Tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {102}{102}}
+\headcommand {\slideentry {4}{1}{1}{102/103}{Tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {102}{103}}
+\headcommand {\slideentry {4}{1}{2}{104/104}{Tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {104}{104}}
+\headcommand {\slideentry {4}{1}{3}{105/105}{Tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {105}{105}}
+\headcommand {\beamer@subsectionpages {102}{105}}
+\headcommand {\beamer@subsectionentry {0}{4}{2}{106}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}}
+\headcommand {\slideentry {4}{2}{1}{106/106}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {106}{106}}
+\headcommand {\slideentry {4}{2}{1}{106/107}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {106}{107}}
+\headcommand {\slideentry {4}{2}{2}{108/108}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {108}{108}}
+\headcommand {\slideentry {4}{2}{3}{109/109}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {109}{109}}
+\headcommand {\slideentry {4}{2}{4}{110/110}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {110}{110}}
+\headcommand {\slideentry {4}{2}{5}{111/111}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {111}{111}}
+\headcommand {\beamer@subsectionpages {106}{111}}
+\headcommand {\beamer@subsectionentry {0}{4}{3}{112}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}}
+\headcommand {\slideentry {4}{3}{1}{112/112}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {112}{112}}
+\headcommand {\slideentry {4}{3}{1}{112/113}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {112}{113}}
+\headcommand {\slideentry {4}{3}{2}{114/114}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {114}{114}}
+\headcommand {\slideentry {4}{3}{3}{115/115}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {115}{115}}
+\headcommand {\slideentry {4}{3}{4}{116/116}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {116}{116}}
+\headcommand {\slideentry {4}{3}{5}{117/117}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {117}{117}}
+\headcommand {\slideentry {4}{3}{6}{118/118}{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{0}}
+\headcommand {\beamer@framepages {118}{118}}
+\headcommand {\beamer@sectionpages {102}{118}}
+\headcommand {\beamer@subsectionpages {112}{118}}
+\headcommand {\sectionentry {5}{Thuật toán Tiến hóa Đa yếu tố (MFEA)}{119}{Thuật toán Tiến hóa Đa yếu tố (MFEA)}{0}}
+\headcommand {\beamer@subsectionpages {119}{118}}
+\headcommand {\beamer@subsectionentry {0}{5}{1}{119}{Việc phân loài trong MFEA}}
+\headcommand {\slideentry {5}{1}{1}{119/119}{Việc phân loài trong MFEA}{0}}
+\headcommand {\beamer@framepages {119}{119}}
+\headcommand {\slideentry {5}{1}{1}{119/120}{Việc phân loài trong MFEA}{0}}
+\headcommand {\beamer@framepages {119}{120}}
+\headcommand {\slideentry {5}{1}{2}{121/121}{Việc phân loài trong MFEA}{0}}
+\headcommand {\beamer@framepages {121}{121}}
+\headcommand {\slideentry {5}{1}{3}{122/122}{Việc phân loài trong MFEA}{0}}
+\headcommand {\beamer@framepages {122}{122}}
+\headcommand {\slideentry {5}{1}{4}{123/123}{Việc phân loài trong MFEA}{0}}
+\headcommand {\beamer@framepages {123}{123}}
+\headcommand {\slideentry {5}{1}{5}{124/124}{Việc phân loài trong MFEA}{0}}
+\headcommand {\beamer@framepages {124}{124}}
+\headcommand {\beamer@subsectionpages {119}{124}}
+\headcommand {\beamer@subsectionentry {0}{5}{2}{125}{Thuật toán chung của MFEA}}
+\headcommand {\slideentry {5}{2}{1}{125/125}{Thuật toán chung của MFEA}{0}}
+\headcommand {\beamer@framepages {125}{125}}
+\headcommand {\slideentry {5}{2}{1}{125/126}{Thuật toán chung của MFEA}{0}}
+\headcommand {\beamer@framepages {125}{126}}
+\headcommand {\slideentry {5}{2}{2}{127/127}{Thuật toán chung của MFEA}{0}}
+\headcommand {\beamer@framepages {127}{127}}
+\headcommand {\slideentry {5}{2}{3}{128/128}{Thuật toán chung của MFEA}{0}}
+\headcommand {\beamer@framepages {128}{128}}
+\headcommand {\slideentry {5}{2}{4}{129/129}{Thuật toán chung của MFEA}{0}}
+\headcommand {\beamer@framepages {129}{129}}
+\headcommand {\beamer@subsectionpages {125}{129}}
+\headcommand {\beamer@subsectionentry {0}{5}{3}{130}{Toán tử sinh sản trong MFEA}}
+\headcommand {\slideentry {5}{3}{1}{130/130}{Toán tử sinh sản trong MFEA}{0}}
+\headcommand {\beamer@framepages {130}{130}}
+\headcommand {\slideentry {5}{3}{1}{130/131}{Toán tử sinh sản trong MFEA}{0}}
+\headcommand {\beamer@framepages {130}{131}}
+\headcommand {\slideentry {5}{3}{2}{132/132}{Toán tử sinh sản trong MFEA}{0}}
+\headcommand {\beamer@framepages {132}{132}}
+\headcommand {\slideentry {5}{3}{3}{133/133}{Toán tử sinh sản trong MFEA}{0}}
+\headcommand {\beamer@framepages {133}{133}}
+\headcommand {\slideentry {5}{3}{4}{134/134}{Toán tử sinh sản trong MFEA}{0}}
+\headcommand {\beamer@framepages {134}{134}}
+\headcommand {\beamer@subsectionpages {130}{134}}
+\headcommand {\beamer@subsectionentry {0}{5}{4}{135}{Tổng quát hóa thuật toán MFEA}}
+\headcommand {\slideentry {5}{4}{1}{135/135}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {135}{135}}
+\headcommand {\slideentry {5}{4}{1}{135/136}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {135}{136}}
+\headcommand {\slideentry {5}{4}{2}{137/137}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {137}{137}}
+\headcommand {\slideentry {5}{4}{3}{138/138}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {138}{138}}
+\headcommand {\slideentry {5}{4}{4}{139/139}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {139}{139}}
+\headcommand {\slideentry {5}{4}{5}{140/140}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {140}{140}}
+\headcommand {\slideentry {5}{4}{6}{141/141}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {141}{141}}
+\headcommand {\slideentry {5}{4}{7}{142/142}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {142}{142}}
+\headcommand {\slideentry {5}{4}{8}{143/143}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {143}{143}}
+\headcommand {\slideentry {5}{4}{9}{144/144}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {144}{144}}
+\headcommand {\slideentry {5}{4}{10}{145/145}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {145}{145}}
+\headcommand {\slideentry {5}{4}{11}{146/146}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {146}{146}}
+\headcommand {\slideentry {5}{4}{12}{147/147}{Tổng quát hóa thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {147}{147}}
+\headcommand {\beamer@subsectionpages {135}{147}}
+\headcommand {\beamer@subsectionentry {0}{5}{5}{148}{Khảo sát tính hội tụ của thuật toán MFEA}}
+\headcommand {\slideentry {5}{5}{1}{148/148}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {148}{148}}
+\headcommand {\slideentry {5}{5}{1}{148/149}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {148}{149}}
+\headcommand {\slideentry {5}{5}{2}{150/150}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {150}{150}}
+\headcommand {\slideentry {5}{5}{3}{151/151}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {151}{151}}
+\headcommand {\slideentry {5}{5}{4}{152/152}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {152}{152}}
+\headcommand {\slideentry {5}{5}{5}{153/153}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {153}{153}}
+\headcommand {\slideentry {5}{5}{6}{154/154}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {154}{154}}
+\headcommand {\slideentry {5}{5}{7}{155/155}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {155}{155}}
+\headcommand {\slideentry {5}{5}{8}{156/156}{Khảo sát tính hội tụ của thuật toán MFEA}{0}}
+\headcommand {\beamer@framepages {156}{156}}
+\headcommand {\beamer@subsectionpages {148}{156}}
+\headcommand {\beamer@subsectionentry {0}{5}{6}{157}{Điều chỉnh xác suất lai ghép khác loài}}
+\headcommand {\slideentry {5}{6}{1}{157/157}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {157}{157}}
+\headcommand {\slideentry {5}{6}{1}{157/158}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {157}{158}}
+\headcommand {\slideentry {5}{6}{2}{159/159}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {159}{159}}
+\headcommand {\slideentry {5}{6}{3}{160/160}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {160}{160}}
+\headcommand {\slideentry {5}{6}{4}{161/161}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {161}{161}}
+\headcommand {\slideentry {5}{6}{5}{162/162}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {162}{162}}
+\headcommand {\slideentry {5}{6}{6}{163/163}{Điều chỉnh xác suất lai ghép khác loài}{0}}
+\headcommand {\beamer@framepages {163}{163}}
+\headcommand {\beamer@sectionpages {119}{163}}
+\headcommand {\beamer@subsectionpages {157}{163}}
+\headcommand {\sectionentry {6}{Các framework tiến hóa đa nhiệm}{164}{Các framework tiến hóa đa nhiệm}{0}}
+\headcommand {\beamer@subsectionpages {164}{163}}
+\headcommand {\beamer@subsectionentry {0}{6}{1}{164}{Mô hình chung}}
+\headcommand {\slideentry {6}{1}{1}{164/164}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {164}{164}}
+\headcommand {\slideentry {6}{1}{1}{164/165}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {164}{165}}
+\headcommand {\slideentry {6}{1}{2}{166/166}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {166}{166}}
+\headcommand {\slideentry {6}{1}{3}{167/167}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {167}{167}}
+\headcommand {\slideentry {6}{1}{4}{168/168}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {168}{168}}
+\headcommand {\slideentry {6}{1}{5}{169/169}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {169}{169}}
+\headcommand {\slideentry {6}{1}{6}{170/170}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {170}{170}}
+\headcommand {\slideentry {6}{1}{7}{171/171}{Mô hình chung}{0}}
+\headcommand {\beamer@framepages {171}{171}}
+\headcommand {\beamer@subsectionpages {164}{171}}
+\headcommand {\beamer@subsectionentry {0}{6}{2}{172}{Chọn cá thể chuyển giao bằng phát hiện bất thường}}
+\headcommand {\slideentry {6}{2}{1}{172/172}{Chọn cá thể chuyển giao bằng phát hiện bất thường}{0}}
+\headcommand {\beamer@framepages {172}{172}}
+\headcommand {\slideentry {6}{2}{1}{172/173}{Chọn cá thể chuyển giao bằng phát hiện bất thường}{0}}
+\headcommand {\beamer@framepages {172}{173}}
+\headcommand {\slideentry {6}{2}{2}{174/174}{Chọn cá thể chuyển giao bằng phát hiện bất thường}{0}}
+\headcommand {\beamer@framepages {174}{174}}
+\headcommand {\slideentry {6}{2}{3}{175/175}{Chọn cá thể chuyển giao bằng phát hiện bất thường}{0}}
+\headcommand {\beamer@framepages {175}{175}}
+\headcommand {\slideentry {6}{2}{4}{176/176}{Chọn cá thể chuyển giao bằng phát hiện bất thường}{0}}
+\headcommand {\beamer@framepages {176}{176}}
+\headcommand {\beamer@subsectionpages {172}{176}}
+\headcommand {\beamer@subsectionentry {0}{6}{3}{177}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}}
+\headcommand {\slideentry {6}{3}{1}{177/177}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{0}}
+\headcommand {\beamer@framepages {177}{177}}
+\headcommand {\slideentry {6}{3}{1}{177/178}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{0}}
+\headcommand {\beamer@framepages {177}{178}}
+\headcommand {\slideentry {6}{3}{2}{179/179}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{0}}
+\headcommand {\beamer@framepages {179}{179}}
+\headcommand {\slideentry {6}{3}{3}{180/180}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{0}}
+\headcommand {\beamer@framepages {180}{180}}
+\headcommand {\slideentry {6}{3}{4}{181/181}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{0}}
+\headcommand {\beamer@framepages {181}{181}}
+\headcommand {\slideentry {6}{3}{5}{182/182}{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{0}}
+\headcommand {\beamer@framepages {182}{182}}
+\headcommand {\beamer@subsectionpages {177}{182}}
+\headcommand {\beamer@subsectionentry {0}{6}{4}{183}{Cập nhật xác suất chuyển giao dựa trên nhật ký}}
+\headcommand {\slideentry {6}{4}{1}{183/183}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {183}{183}}
+\headcommand {\slideentry {6}{4}{1}{183/184}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {183}{184}}
+\headcommand {\slideentry {6}{4}{2}{185/185}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {185}{185}}
+\headcommand {\slideentry {6}{4}{3}{186/186}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {186}{186}}
+\headcommand {\slideentry {6}{4}{4}{187/187}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {187}{187}}
+\headcommand {\slideentry {6}{4}{5}{188/188}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {188}{188}}
+\headcommand {\slideentry {6}{4}{6}{189/189}{Cập nhật xác suất chuyển giao dựa trên nhật ký}{0}}
+\headcommand {\beamer@framepages {189}{189}}
+\headcommand {\beamer@sectionpages {164}{189}}
+\headcommand {\beamer@subsectionpages {183}{189}}
+\headcommand {\sectionentry {7}{Tài liệu tham khảo}{190}{Tài liệu tham khảo}{0}}
+\headcommand {\slideentry {7}{0}{1}{190/190}{}{0}}
+\headcommand {\beamer@framepages {190}{190}}
+\headcommand {\slideentry {7}{0}{1}{190/191}{}{0}}
+\headcommand {\beamer@framepages {190}{191}}
+\headcommand {\slideentry {7}{0}{1}{190/192}{}{0}}
+\headcommand {\beamer@framepages {190}{192}}
+\headcommand {\slideentry {7}{0}{2}{193/193}{}{0}}
+\headcommand {\beamer@framepages {193}{193}}
+\headcommand {\beamer@partpages {1}{193}}
+\headcommand {\beamer@subsectionpages {190}{193}}
+\headcommand {\beamer@sectionpages {190}{193}}
+\headcommand {\beamer@documentpages {193}}
+\headcommand {\gdef \inserttotalframenumber {192}}

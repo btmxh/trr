@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mfo}\PYG{p}{():}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{populations} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{culture\PYGZus{}tranmission}\PYG{p}{(}\PYG{n}{task}\PYG{p}{):}
+        \PYG{n}{populations} \PYG{o}{+=} \PYG{p}{[}\PYG{n}{do\PYGZus{}culture\PYGZus{}tranmission}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)]}
+      \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{populations} \PYG{o}{+=} \PYG{p}{[}\PYG{n+nb}{next}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{ea}\PYG{p}{)]}
+    \PYG{k}{yield} \PYG{n}{populations}
+\end{Verbatim}

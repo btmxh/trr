@@ -1,0 +1,32 @@
+\beamer@slide {sec:Ứng dụng các cơ chế tiến hóa trong tối ưu}{2}
+\beamer@slide {sub:Chọn lọc tự nhiên và Thuyết tiến hóa của C. Darwin}{5}
+\beamer@slide {sub:Giải thuật tiến hóa (Evolutionary Algorithms)}{10}
+\beamer@slide {sub:Các khái niệm chung của các giải thuật tiến hóa}{14}
+\beamer@slide {sub:Đánh giá chung các giải thuật tiến hóa}{23}
+\beamer@slide {sub:Giới thiệu chung}{27}
+\beamer@slide {sub:Thuật toán chung}{30}
+\beamer@slide {sub:Khởi tạo quần thể}{34}
+\beamer@slide {sub:Toán tử chọn lọc}{38}
+\beamer@slide {sub:Toán tử lai ghép}{49}
+\beamer@slide {sub:Toán tử đột biến}{64}
+\beamer@slide {sub:Ứng dụng giải thuật di truyền để giải bài toán người bán hàng}{74}
+\beamer@slide {sec:Tiến hóa vi phân (Differential Evolution)}{76}
+\beamer@slide {sub:Giới thiệu và thuật toán chung}{78}
+\beamer@slide {sub:Toán tử lai ghép và đột biến trong DE}{82}
+\beamer@slide {sub:Ảnh hưởng của các tham số đến DE}{98}
+\beamer@slide {sec:Các vấn đề chung nhất về tối ưu đa nhiệm}{102}
+\beamer@slide {sub:Tối ưu đa nhiệm}{104}
+\beamer@slide {sub:Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}{108}
+\beamer@slide {sub:Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}{114}
+\beamer@slide {sec:Thuật toán Tiến hóa Đa yếu tố (MFEA)}{119}
+\beamer@slide {sub:Việc phân loài trong MFEA}{121}
+\beamer@slide {sub:Thuật toán chung của MFEA}{127}
+\beamer@slide {sub:Toán tử sinh sản trong MFEA}{132}
+\beamer@slide {sub:Tổng quát hóa thuật toán MFEA}{137}
+\beamer@slide {sub:Khảo sát tính hội tụ của thuật toán MFEA}{150}
+\beamer@slide {sub:Điều chỉnh xác suất lai ghép khác loài}{159}
+\beamer@slide {sec:Các framework tiến hóa đa nhiệm}{164}
+\beamer@slide {sub:Mô hình chung}{166}
+\beamer@slide {sub:Chọn cá thể chuyển giao bằng phát hiện bất thường}{174}
+\beamer@slide {sub:Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}{179}
+\beamer@slide {sub:Cập nhật xác suất chuyển giao dựa trên nhật ký}{185}

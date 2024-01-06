@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{k}{def} \PYG{n+nf}{ux}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{):}
+  \PYG{c+c1}{\PYGZsh{} tạo ra hai nhiễm sắc thể con là bản sao của cha mẹ}
+  \PYG{n}{c1} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{)}
+  \PYG{n}{c2} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{p2}\PYG{p}{)}
+  \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{)):}
+    \PYG{k}{if} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{\PYGZlt{}} \PYG{l+m+mf}{0.5}\PYG{p}{:}
+      \PYG{n}{swap}\PYG{p}{(}\PYG{n}{c1}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{c2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+\end{Verbatim}

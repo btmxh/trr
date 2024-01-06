@@ -1,0 +1,219 @@
+\section{Các vấn đề chung nhất về tối ưu đa nhiệm} % (fold)
+\label{sec:Các vấn đề chung nhất về tối ưu đa nhiệm}
+
+\subsection{Tối ưu đa nhiệm} % (fold)
+\label{sub:Tối ưu đa nhiệm}
+
+\begin{frame}{Tối ưu đa nhiệm}
+Ngày nay, các bài toán tối ưu xuất hiện rất nhiều trong các lĩnh vực của đời
+sống như trong kỹ thuật và tổ chức. Với số lượng bài toán lớn đến như vậy, trong
+đó có nhiều bài toán liên quan mật thiết với nhau, người ta nghĩ đến một cách để
+kết hợp việc giải các bài toán này, sử dụng "tri thức" thu được từ giải bài toán
+này để trợ giúp cho việc giải bài toán khác, làm tăng tính hiệu quả của quá
+trình tối ưu.
+
+Mô hình này được gọi là mô hình tối ưu đa nhiệm (Multitask Optimization), một
+phương pháp tối ưu tương đối mới nhưng có nhiều áp dụng thực tiễn. Đặc biệt
+trong bối cảnh khi mà điện toán đám mây đang phát triển, các nhà cung cấp dịch
+vụ có thể sử dụng tổi ưu đa nhiệm để làm quá trình tính toán diễn ra hiệu quả
+hơn.
+
+Khác với tối ưu đa mục tiêu, tối ưu đa nhiệm tìm một nghiệm tối ưu cho mỗi bài
+toán, không phải là tìm một nghiệm tối ưu cho tất cả các bài toán.
+\end{frame}
+
+\begin{frame}{Bài toán tối ưu đa nhiệm tổng quát}
+  Bài toán tối ưu đa nhiệm tổng quát có dạng như sau:
+\begin{align*}
+  \min &\, f_{1}(x_{1}), f_{2}(x_{2}), \ldots , f_{T}(x_{T})\\
+  \text{subject to}\, &x_{1} \in X_{1}, x_{2} \in X_{2},
+  \ldots , x_{T} \in X_{T}.
+\end{align*}
+
+Trong đó, có \( t \) bài toán tối ưu con, thường gọi tắt là \textbf{bài toán}
+(task):
+\begin{alignat*}{3}
+  (P_i):&&\min \, &f_i(x_i)\\
+  \quad &&\text{subject to} \, &x_{i} \in X_{i}
+,\end{alignat*}
+với \( i \in \{1, 2, \ldots , T\}   \).
+
+\end{frame}
+% subsection Tối ưu đa nhiệm (end)
+\subsection{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm} % (fold)
+\label{sub:Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}
+
+\begin{frame}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}
+  Một cách rất tự nhiên để giải quyết các bài toán tối ưu đa nhiệm là giải quyết
+  từng bài toán con một bằng một giải thuật nào đó. Khi đó, ta có thể lựa chọn
+  linh hoạt thuật toán và các tham số cho từng bài toán con, và ta cũng có thể
+  dễ dàng sử dụng tính toán song song để chạy nhiều thuật toán trong cùng một
+  lúc.
+
+  Tuy nhiên, cách làm này quá độc lập, làm cho giữa các bài toán không hề có một
+  lượng thông tin di truyền nào được chuyển giao. Ngoài ra, lượng tính toán và
+  bộ nhớ cũng tăng tuyến tính theo số bài toán: \( O(T) \).
+
+  Một cách khắc phục tính độc lập này là ta có thể can thiệp vào quá trình chạy
+  thuật toán sau một số vòng lặp và thực hiện chuyển giao tri thức. Ý tưởng này
+  được sử dụng trong một số thuật toán tối ưu đa nhiệm sẽ được đề cập trong
+  những phần sau.
+\end{frame}
+
+\begin{frame}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}
+Ngoài cách xử lý riêng rẽ, ta còn có một cách ngây thơ khác để giải bài toán tối
+ưu đa nhiệm. Xét bài toán tối ưu đa nhiệm tổng quát:
+\begin{align*}
+  \min &\, f_{1}(x_{1}), f_{2}(x_{2}), \ldots , f_{T}(x_{T})\\
+  \text{subject to}\, &x_{1} \in X_{1}, x_{2} \in X_{2},
+  \ldots , x_{T} \in X_{T}.
+\end{align*}
+Ta thấy cách biểu diễn này của một bài toán tối ưu đa nhiệm khá tương đồng với
+một bài toán tối ưu đơn nhiệm. Hơn nữa, bài toán đa nhiệm trên tương đương với
+bài toán đơn nhiệm sau:
+\begin{align*}
+  \min &\, f(x) = f_{1}(x_{1})+ f_{2}(x_{2})+ \ldots +
+  f_{T}(x_{T})\\
+  \text{subject to}\, &x = (x_{1}, x_{2}, \ldots, x_{T}) \in X_{1} \times  X_{2}
+  \times  \ldots  \times X_{T}.
+\end{align*}
+Với ý tưởng này, ta có thể sử dụng các thuật toán tối ưu đơn mục tiêu như giải
+thuật di truyền hay tiến hóa vi phân để giải bài toán đa nhiệm.
+\end{frame}
+
+\begin{frame}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}
+  Tuy nhiên, cách làm này lại có một số vấn đề như sau:
+  \begin{itemize}
+  \item Mỗi nhiễm sắc thể trong bài toán đơn nhiệm có số gen bằng tổng số chiều
+    của các bài toán con, nên số chiều của bài toán này ở cỡ \( O(TD) \). Việc
+    số chiều lớn sẽ làm cho các tham số của thuật toán lớn theo để giữ được khả
+    năng khai phá miền nghiệm, khiến thuật toán chạy chậm hơn đáng kể.
+    Vấn đề này được gọi là Curse of Dimensionality.
+  \item Các bài toán con sẽ không được giải với độ ưu tiên như nhau, vì thuật
+    toán sẽ có xu hướng tối thiểu hóa các bài toán dễ tối ưu trước. Ta có thể
+    một phần khắc phục vấn đề này bằng cách thêm các trọng số vào hàm mục tiêu:
+    \[
+      f(x_{1}, x_{2}, \ldots ,x_{T}) = w_{1}f_{1}(x_{1}) + w_{2}f_{2}(x_{2}) +
+      \ldots  + w_{T}f_{T}(x_{T})
+    .\]
+    Khi đó, cách này lại làm xuất hiện các tham số cần được điều chỉnh, làm
+    phức tạp hóa việc giải bài toán này.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Hai cách ngây thơ giải bài toán tối ưu đa nhiệm}
+  \begin{itemize}
+  \item
+    Các toán tử di truyền thông dụng trong các thuật toán như GA hay DE thường
+    độc lập với từng gen, nghĩa là chỉ có các gen cùng vị trí là được kết hợp
+    với nhau để sinh ra các cá thể con. Do đó, thông tin di truyền giữa các bài
+    toán sẽ hầu như không được chuyển giao ra ngoài.
+
+    Mặt khác, nếu ta cài đặt và sử dụng các toán tử di truyền cho phép chuyển
+    giao thông tin di truyền giữa các bài toán với nhau, thì thông tin di truyền
+    được chuyển giao mà không được điều chỉnh. Khi đó các thông tin di truyền
+    tốt và xấu đều được chuyển giao với khả năng nhưa nhau.
+  \end{itemize}
+
+  Để khắc phục các vấn đề này, cần thiết kế các thuật toán chuyên dùng để giải
+  các bài toán tối ưu đa nhiệm, nhằm khắc phục các vấn đề trên của cách làm ngây
+  thơ.
+\end{frame}
+
+% subsection Hai cách ngây thơ giải bài toán tối ưu đa nhiệm (end)
+
+\subsection{Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm} % (fold)
+\label{sub:Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm}
+
+\begin{frame}{Các giải thuật tiến hóa trong tối ưu đa nhiệm}
+Các giải thuật tiến hóa đều có điểm chung là tiến hành cải thiện dần một quần
+thể, là một nhóm các cá thể ngày càng trở nên tối ưu hơn sau các thể hệ, khác
+với các giải thuật thông thường chỉ tập trung cải thiện một nghiệm duy nhất.
+Điều này làm các giải thuật tiến hóa khá thích hợp cho tối ưu đa nhiệm, vì tối
+ưu đa nhiệm cũng ít nhất phải thực hiện trên một nhóm các nghiệm của $T$ bài
+toán.
+
+Tiếp tục lấy ý tưởng từ tự nhiên, trong một hệ sinh thái không chỉ có một loài,
+mà có rất nhiều loài sinh vật tương tác với nhau không ngừng. Hơn nữa, có một số
+loài khác nhau vẫn có thể giao phối với nhau, như loài la là con lai giữa ngựa
+cái và lừa đực.
+
+Trở lại bài toán, ta sẽ coi mỗi bài toán là một loài cá thể. Giữa các loài này
+có mối quan hệ tương đối gần nhau, ít nhất là các loài này có thể giao phối,
+nhưng với xác suất thấp hơn là giao phối cùng loài.
+\end{frame}
+
+\begin{frame}{Các giải thuật tiến hóa trong tối ưu đa nhiệm}
+  Khi áp dụng các giải thuật tiến hóa trong tối ưu đa nhiệm, việc chia loài cũng
+  giúp giảm số lần tính hàm fitness. Ta sẽ chỉ tính fitness của cá thể đối với
+  bài toán ứng với loài của nó, và coi fitness của nó với các bài toán còn lại
+  là \( +\infty \).
+
+  Trong thực nghiệm, các cá thể khác loại có cấu trúc gen rất khác nhau, nên ít
+  khi cá thể con sinh ra lại tốt trong bài toán khác với bài toán ứng với loài
+  của các cá thể cha mẹ nó. Do đó, cách giảm số lần tính fitness này không làm
+  mất đi quá nhiều cá thể tiềm năng.
+\end{frame}
+
+\begin{frame}{Mã hóa trong tối ưu đa nhiệm tiến hóa}
+  Cũng giống như trong tự nhiên, ta sẽ sử dụng một dạng nhiễm sắc thể cho mọi
+  loài trong giải thuật. Điều này giúp cho việc cài đặt các toán tử di truyền
+  không có gì khác so với các giải thuật di truyền thông thường, vì chúng vẫn
+  hoạt động trên các mảng gen.
+
+  Để thuận lợi cho các toán tử di truyền, ta sẽ cố định số gen trong mọi cá thể.
+  Để sử dụng ít chiều nhất, ta sẽ chọn số chiều bằng với số chiều lớn nhất của
+  các bài toán:
+  \[
+    D = \max\limits_{1 \le i \le T} D_{i}
+  .\] 
+  Cụ thể cách mã hóa như thế nào sẽ được chọn theo các bài toán con. Chẳng hạn,
+  nếu các bài toán con là các bài toán rời rạc, ta có thể sử dụng các cách mã
+  hóa rởi rạc như mảng hoán vị hay chuỗi nhị phân.
+\end{frame}
+
+\begin{frame}{Xử lý ràng buộc của các bài toán con}
+  Cách mã hóa thống nhất của các thuật toán tối ưu đa nhiệm dẫn đến vấn đề về
+  ràng buộc. Chẳng hạn như nếu ta sử dụng mã hóa mảng số thực, các ràng buộc của
+  các bài toán có thể mâu thuẫn với nhau, dẫn đến việc không có một cá thể nào
+  là hợp lệ.
+
+  Để xử lý vấn đề này, ta có hai cách như sau:
+
+  \begin{itemize}
+  \item Sử dụng hàm phạt: Đối với các cá thể không hợp lệ, thay vì loại bỏ chúng
+    thì ta giữ lại, nhưng cho chúng giá trị hàm fitness lớn bằng cách cộng thêm
+    một hàm phạt vào hàm fitness của từng bài toán:
+    \[
+      f^{*}_{i}(x) = f_{i}(x) + C_{i}P_{i}(x)
+    .\] 
+    \( C_{i} \) là một hằng số lớn để hạn chế việc vi phạm ràng buộc.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Xử lý ràng buộc của các bài toán con}
+  \begin{itemize}
+  \item Thay đổi cách mã hóa: Ta thay đổi cách mã hóa của từng bài toán để loại
+    bỏ đi các cá thể không thỏa mãn ràng buộc trong khi vẫn giữ nguyên dạng mã
+    hóa chung. Chẳng hạn như nếu dạng mã hóa chung là \( [0, 1]^{D} \) nhưng một
+    bài toán có ràng buộc \( a_{i} \le x_{i} \le b_{i}, \forall i=
+    \overline{1,d} \) (\( d \le D\) là số chiều của bài toán con), ta có thể
+    thực hiện nội suy tuyến tính để chuyển tử \( [0, 1]^{D} \) sang miền nghiệm:
+    \[
+      x' = a + x_{1..d} \odot (b - a) = 
+      \begin{bmatrix} 
+        a_{1} + x_{1}(b_{1}-a_{1})\\
+        a_{2} + x_{2}(b_{2}-a_{2})\\
+        \vdots \\
+        a_{d} + x_{d}(b_{d} - a_{d})
+      \end{bmatrix} 
+    .\]
+
+    Cách này khó dùng hơn so với cách sử dụng hàm phạt nhưng nó luôn cho ra kết
+    quả tốt hơn do nó không phải giữ lấy các giá trị vi phạm ràng buộc.
+  \end{itemize}
+\end{frame}
+
+% subsection Sử dụng giải thuật tiến hóa trong tối ưu đa nhiệm (end)
+
+% section Các vấn đề chung nhất về tối ưu đa nhiệm (end)

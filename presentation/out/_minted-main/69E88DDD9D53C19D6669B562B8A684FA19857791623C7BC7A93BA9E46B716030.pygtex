@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{k}{def} \PYG{n+nf}{do\PYGZus{}culture\PYGZus{}tranmission}\PYG{p}{(}\PYG{n}{task}\PYG{p}{):}
+  \PYG{c+c1}{\PYGZsh{} quần thể gồm mọi cá thể trừ các cá thể của bài toán đang xét}
+  \PYG{n}{pop\PYGZus{}all} \PYG{o}{=} \PYG{p}{[}\PYG{n}{x} \PYG{k}{for} \PYG{n}{transfer\PYGZus{}task} \PYG{o+ow}{in} \PYG{n}{tasks} \PYG{k}{if} \PYG{n}{transfer\PYGZus{}task} \PYG{o}{!=} \PYG{n}{task}
+               \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n}{task}\PYG{o}{.}\PYG{n}{population}\PYG{p}{]}
+  \PYG{c+c1}{\PYGZsh{} chọn lấy 100 cá thể ngẫu nhiên từ `pop\PYGZus{}all`}
+  \PYG{n}{task}\PYG{o}{.}\PYG{n}{population} \PYG{o}{+=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{pop\PYGZus{}all}\PYG{p}{,} \PYG{l+m+mi}{100}\PYG{p}{)}
+  \PYG{k}{return} \PYG{n}{selction}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} thực hiện chọn lọc}
+\end{Verbatim}

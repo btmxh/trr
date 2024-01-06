@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} thay `num\PYGZus{}offsprings` phần tử cuối của mảng `offspring`}
+\PYG{c+c1}{\PYGZsh{} bởi kết quả trả lại ở vế phải}
+\PYG{n}{offsprings}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{n}{num\PYGZus{}offsprings}\PYG{p}{:]} \PYG{o}{=} \PYG{n}{interspecies\PYGZus{}mating}\PYG{p}{(}\PYG{n}{task}\PYG{p}{,} \PYG{n}{transfer\PYGZus{}task}\PYG{p}{,}
+                                                   \PYG{n}{num\PYGZus{}offsprings}\PYG{p}{)}
+\end{Verbatim}

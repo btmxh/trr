@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{try\PYGZus{}update\PYGZus{}translations}\PYG{p}{(}\PYG{n}{generation}\PYG{p}{):}
+  \PYG{k}{if} \PYG{n}{generation} \PYG{o}{\PYGZgt{}} \PYG{n}{phi} \PYG{o+ow}{and} \PYG{n}{generation} \PYG{o}{\PYGZpc{}} \PYG{n}{theta} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+    \PYG{n}{update\PYGZus{}translations}\PYG{p}{(}\PYG{n}{generation}\PYG{p}{)}
+\end{Verbatim}

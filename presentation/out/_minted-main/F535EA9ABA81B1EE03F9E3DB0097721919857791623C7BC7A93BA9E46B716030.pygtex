@@ -1,0 +1,20 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{n}{eta} \PYG{o}{=} \PYG{l+m+mi}{3}  \PYG{c+c1}{\PYGZsh{} chỉ số phân phối}
+\PYG{k}{def} \PYG{n+nf}{sbx\PYGZus{}single}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{):}
+  \PYG{n}{mu} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()}
+  \PYG{k}{if} \PYG{n}{mu} \PYG{o}{\PYGZlt{}} \PYG{l+m+mf}{0.5}\PYG{p}{:}
+    \PYG{n}{beta} \PYG{o}{=} \PYG{n+nb}{pow}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{n}{mu}\PYG{p}{,} \PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(}\PYG{n}{eta} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{))}
+  \PYG{k}{else}\PYG{p}{:}
+    \PYG{n}{beta} \PYG{o}{=} \PYG{n+nb}{pow}\PYG{p}{(}\PYG{l+m+mi}{2} \PYG{o}{*} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{mu}\PYG{p}{),} \PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(}\PYG{n}{eta} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{))}
+  \PYG{k}{return} \PYG{l+m+mf}{0.5} \PYG{o}{*} \PYG{p}{((}\PYG{n}{p1} \PYG{o}{+} \PYG{n}{p2}\PYG{p}{)} \PYG{o}{+} \PYG{n}{beta} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p1} \PYG{o}{\PYGZhy{}} \PYG{n}{p2}\PYG{p}{)),}
+         \PYG{l+m+mf}{0.5} \PYG{o}{*} \PYG{p}{((}\PYG{n}{p1} \PYG{o}{+} \PYG{n}{p2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{beta} \PYG{o}{*} \PYG{p}{(}\PYG{n}{p1} \PYG{o}{\PYGZhy{}} \PYG{n}{p2}\PYG{p}{))}
+
+\PYG{k}{def} \PYG{n+nf}{sbx}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{):}
+  \PYG{n}{c1} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{)}
+  \PYG{n}{c2} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{p2}\PYG{p}{)}
+  \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{)):}
+    \PYG{n}{c1}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{c2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{sbx\PYGZus{}single}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{p2}\PYG{p}{[}\PYG{n}{i}\PYG{p}{])}
+  \PYG{k}{return} \PYG{n}{c1}\PYG{p}{,} \PYG{n}{c2}
+\end{Verbatim}

@@ -1,0 +1,53 @@
+\begin{thebibliography}{9}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bali et~al.(2020)Bali, Ong, Gupta, and Tan]{Bali2020-rz}
+Kavitesh~Kumar Bali, Yew-Soon Ong, Abhishek Gupta, and Puay~Siew Tan.
+\newblock Multifactorial evolutionary algorithm with online transfer parameter estimation: {MFEA-II}.
+\newblock \emph{IEEE Trans. Evol. Comput.}, 24\penalty0 (1):\penalty0 69--83, February 2020.
+
+\bibitem[Chen et~al.(2020)Chen, Zhong, Feng, and Zhang]{Chen2020-iy}
+Yongliang Chen, Jinghui Zhong, Liang Feng, and Jun Zhang.
+\newblock An adaptive archive-based evolutionary framework for many-task optimization.
+\newblock \emph{IEEE Trans. Emerg. Top. Comput. Intell.}, 4\penalty0 (3):\penalty0 369--384, June 2020.
+
+\bibitem[Das and Suganthan(2011)]{Das2011-zr}
+Swagatam Das and Ponnuthurai~Nagaratnam Suganthan.
+\newblock Differential evolution: A survey of the state-of-the-art.
+\newblock \emph{IEEE Trans. Evol. Comput.}, 15\penalty0 (1):\penalty0 4--31, February 2011.
+
+\bibitem[Ding et~al.(2019)Ding, Yang, Jin, and Chai]{Ding2019-ta}
+Jinliang Ding, Cuie Yang, Yaochu Jin, and Tianyou Chai.
+\newblock Generalized multitasking for evolutionary optimization of expensive problems.
+\newblock \emph{IEEE Trans. Evol. Comput.}, 23\penalty0 (1):\penalty0 44--58, February 2019.
+
+\bibitem[Gupta et~al.(2016)Gupta, Ong, and Feng]{Gupta2016-jt}
+Abhishek Gupta, Yew-Soon Ong, and Liang Feng.
+\newblock Multifactorial evolution: Toward evolutionary multitasking.
+\newblock \emph{IEEE Trans. Evol. Comput.}, 20\penalty0 (3):\penalty0 343--357, June 2016.
+
+\bibitem[Gupta et~al.(2022)Gupta, Zhou, Ong, Chen, and Hou]{Gupta2022-en}
+Abhishek Gupta, Lei Zhou, Yew-Soon Ong, Zefeng Chen, and Yaqing Hou.
+\newblock Half a dozen real-world applications of evolutionary multitasking, and more.
+\newblock \emph{IEEE Comput. Intell. Mag.}, 17\penalty0 (2):\penalty0 49--66, May 2022.
+
+\bibitem[Li et~al.(2015)Li, Zhan, Gong, Chen, Zhang, and Li]{Li2015-cs}
+Yuan-Long Li, Zhi-Hui Zhan, Yue-Jiao Gong, Wei-Neng Chen, Jun Zhang, and Yun Li.
+\newblock Differential evolution with an evolution path: A {DEEP} evolutionary algorithm.
+\newblock \emph{IEEE Trans. Cybern.}, 45\penalty0 (9):\penalty0 1798--1810, September 2015.
+
+\bibitem[Liaw and Ting(2017)]{Liaw2017-go}
+Rung-Tzuo Liaw and Chuan-Kang Ting.
+\newblock Evolutionary many-tasking based on biocoenosis through symbiosis: A framework and benchmark problems.
+\newblock In \emph{2017 {IEEE} Congress on Evolutionary Computation ({CEC})}. IEEE, June 2017.
+
+\bibitem[Wang et~al.(2022)Wang, Liu, Wu, and Wu]{Wang2022-du}
+Chao Wang, Jing Liu, Kai Wu, and Zhaoyang Wu.
+\newblock Solving multitask optimization problems with adaptive knowledge transfer via anomaly detection.
+\newblock \emph{IEEE Trans. Evol. Comput.}, 26\penalty0 (2):\penalty0 304--318, April 2022.
+
+\end{thebibliography}

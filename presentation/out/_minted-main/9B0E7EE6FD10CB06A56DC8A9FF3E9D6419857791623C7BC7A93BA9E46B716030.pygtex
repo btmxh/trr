@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{de}\PYG{p}{():}
+  \PYG{n}{population} \PYG{o}{=} \PYG{n}{init\PYGZus{}pop}\PYG{p}{()}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} lặp với mọi cá thể trong quần thể}
+    \PYG{k}{for} \PYG{n}{parent} \PYG{o+ow}{in} \PYG{n}{population}\PYG{p}{:}
+      \PYG{c+c1}{\PYGZsh{} tạo một cá thể đột biến từ các cá thể khác trong quần thể}
+      \PYG{n}{mutant} \PYG{o}{=} \PYG{n}{new\PYGZus{}mutant}\PYG{p}{(}\PYG{n}{population}\PYG{p}{,} \PYG{n}{parent}\PYG{p}{)}
+      \PYG{c+c1}{\PYGZsh{} thực hiện lai ghép giữa cá thể đột biến và cá thể gốc}
+      \PYG{n}{offspring} \PYG{o}{=} \PYG{n}{crossover}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{,} \PYG{n}{mutant}\PYG{p}{)}
+      \PYG{k}{if} \PYG{n}{fitness}\PYG{p}{(}\PYG{n}{mutant}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{fitness}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{):}
+        \PYG{c+c1}{\PYGZsh{} nếu cá thể con tốt hơn cá thể gốc,}
+        \PYG{c+c1}{\PYGZsh{} cá thể con sẽ thay thế cá thể gốc trong quần thể}
+        \PYG{n}{population}\PYG{p}{[}\PYG{n}{population}\PYG{o}{.}\PYG{n}{index}\PYG{p}{(}\PYG{n}{parent}\PYG{p}{)]} \PYG{o}{=} \PYG{n}{offspring}
+    \PYG{k}{yield} \PYG{n}{population}
+\end{Verbatim}

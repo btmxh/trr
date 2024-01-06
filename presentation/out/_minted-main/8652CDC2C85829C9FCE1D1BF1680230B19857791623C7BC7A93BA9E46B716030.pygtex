@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mfea}\PYG{p}{():}
+  \PYG{n}{population} \PYG{o}{=} \PYG{n}{init\PYGZus{}pop}\PYG{p}{()}
+  \PYG{n}{update\PYGZus{}mfea\PYGZus{}values}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)}
+
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{reproduction}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)}
+    \PYG{n}{update\PYGZus{}mfea\PYGZus{}values}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)}
+    \PYG{n}{selection}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)}
+    \PYG{k}{yield} \PYG{n}{population}
+\end{Verbatim}

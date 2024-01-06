@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mfo}\PYG{p}{():}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{populations} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+      \PYG{n}{offsprings} \PYG{o}{=} \PYG{n}{reproduction}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} lai ghép cùng loài}
+      \PYG{k}{for} \PYG{n}{transfer\PYGZus{}task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+        \PYG{k}{if} \PYG{n}{task} \PYG{o}{!=} \PYG{n}{transfer\PYGZus{}task}\PYG{p}{:}
+          \PYG{c+c1}{\PYGZsh{} tính số lượng cá thể con sinh ra từ lai ghép khác loài}
+          \PYG{n}{num\PYGZus{}offsprings} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{rmp} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{offsprings}\PYG{p}{))}
+          \PYG{c+c1}{\PYGZsh{} thực hiện lai ghép khác loài, thêm các}
+          \PYG{c+c1}{\PYGZsh{} cá thể con này vào mảng `offspring`}
+          \PYG{n}{offsprings} \PYG{o}{+=} \PYG{n}{interspecies\PYGZus{}mating}\PYG{p}{(}\PYG{n}{task}\PYG{p}{,} \PYG{n}{transfer\PYGZus{}task}\PYG{p}{,} \PYG{n}{num\PYGZus{}offsprings}\PYG{p}{)}
+      \PYG{n}{task}\PYG{o}{.}\PYG{n}{population} \PYG{o}{+=} \PYG{n}{offsprings}
+      \PYG{n}{populations} \PYG{o}{+=} \PYG{n}{selection}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{population}\PYG{p}{)}
+    \PYG{k}{yield} \PYG{n}{populations}
+\end{Verbatim}

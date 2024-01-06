@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{ga}\PYG{p}{():}
+  \PYG{n}{population} \PYG{o}{=} \PYG{n}{init\PYGZus{}pop}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} khởi tạo quần thể}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{new\PYGZus{}population} \PYG{o}{=} \PYG{p}{[]} \PYG{c+c1}{\PYGZsh{} mảng lưu các quần thể mới}
+
+    \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{POP\PYGZus{}SIZE} \PYG{o}{/} \PYG{l+m+mi}{2}\PYG{p}{):}
+      \PYG{c+c1}{\PYGZsh{} chọn ra các cá thể cha mẹ để thực hiện lai ghép}
+      \PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2} \PYG{o}{=} \PYG{n}{select\PYGZus{}parents}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)}
+      \PYG{c+c1}{\PYGZsh{} thực hiện lai ghép `p1` và `p2` sinh ra `c1` và `c2`}
+      \PYG{n}{c1}\PYG{p}{,} \PYG{n}{c2} \PYG{o}{=} \PYG{n}{crossover}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{)}
+      \PYG{c+c1}{\PYGZsh{} với xác suất `mutation\PYGZus{}rate`, thực hiện đột biến}
+      \PYG{k}{if} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{\PYGZlt{}} \PYG{n}{mutation\PYGZus{}rate}\PYG{p}{:} \PYG{n}{mutate}\PYG{p}{(}\PYG{n}{c1}\PYG{p}{)}
+      \PYG{k}{if} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{\PYGZlt{}} \PYG{n}{mutation\PYGZus{}rate}\PYG{p}{:} \PYG{n}{mutate}\PYG{p}{(}\PYG{n}{c2}\PYG{p}{)}
+
+      \PYG{n}{new\PYGZus{}population} \PYG{o}{+=} \PYG{p}{[}\PYG{n}{c1}\PYG{p}{,} \PYG{n}{c2}\PYG{p}{]} \PYG{c+c1}{\PYGZsh{} thêm `c1` và `c2` vào quần thể mới}
+    \PYG{n}{population} \PYG{o}{=} \PYG{n}{new\PYGZus{}population}
+    \PYG{k}{yield} \PYG{n}{population}
+\end{Verbatim}

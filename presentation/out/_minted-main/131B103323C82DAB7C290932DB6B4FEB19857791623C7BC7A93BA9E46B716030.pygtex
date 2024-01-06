@@ -1,0 +1,18 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{matea}\PYG{p}{():}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{populations} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+      \PYG{k}{if} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{\PYGZlt{}} \PYG{n}{alpha}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} chạy một vòng lặp đơn nhiệm}
+        \PYG{n}{populations} \PYG{o}{+=} \PYG{p}{[}\PYG{n+nb}{next}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{ea}\PYG{p}{)]}
+      \PYG{k}{else}\PYG{p}{:}
+        \PYG{c+c1}{\PYGZsh{} chọn bài toán chuyển giao tri thức}
+        \PYG{n}{transfer\PYGZus{}task} \PYG{o}{=} \PYG{n}{roulette\PYGZus{}select}\PYG{p}{(}\PYG{n}{tasks}\PYG{p}{,} \PYG{n}{key}\PYG{o}{=}\PYG{n}{score}\PYG{p}{[}\PYG{n}{task}\PYG{p}{])}
+        \PYG{c+c1}{\PYGZsh{} lai ghép chuyển giao tri thức}
+        \PYG{n}{offsprings} \PYG{o}{=} \PYG{n}{knowledge\PYGZus{}transfer\PYGZus{}crossover}\PYG{p}{(}\PYG{n}{task}\PYG{p}{,} \PYG{n}{transfer\PYGZus{}task}\PYG{p}{)}
+        \PYG{n}{task}\PYG{o}{.}\PYG{n}{population} \PYG{o}{+=} \PYG{n}{offsprings}
+        \PYG{n}{population} \PYG{o}{+=} \PYG{p}{[}\PYG{n}{selection}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)]}
+        \PYG{n}{update\PYGZus{}scores}\PYG{p}{(}\PYG{n}{task}\PYG{p}{,} \PYG{n}{transfer\PYGZus{}task}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} cập nhật score[task][transfer\PYGZus{}task]}
+      \PYG{n}{update\PYGZus{}archive}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} cập nhật nhật ký}
+\end{Verbatim}

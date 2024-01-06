@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} hàm khởi tạo quần thể}
+\PYG{k}{def} \PYG{n+nf}{init\PYGZus{}pop}\PYG{p}{():}
+  \PYG{c+c1}{\PYGZsh{} tạo ra một list gồm `POP\PYGZus{}SIZE` phần tử (tham số cho trước)}
+  \PYG{c+c1}{\PYGZsh{} mỗi phần tử là một kết quả từ hàm `random\PYGZus{}individual`,}
+  \PYG{c+c1}{\PYGZsh{} một cá thể ngẫu nhiên}
+  \PYG{k}{return} \PYG{p}{[}\PYG{n}{random\PYGZus{}individual}\PYG{p}{()} \PYG{k}{for} \PYG{n}{\PYGZus{}} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{POP\PYGZus{}SIZE}\PYG{p}{)]}
+
+\end{Verbatim}

@@ -1,0 +1,12 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{k}{def} \PYG{n+nf}{reproduction}\PYG{p}{(}\PYG{n}{population}\PYG{p}{):}
+  \PYG{k}{for} \PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2} \PYG{o+ow}{in} \PYG{n}{pick\PYGZus{}mating\PYGZus{}parents}\PYG{p}{(}\PYG{n}{population}\PYG{p}{):}
+    \PYG{c+c1}{\PYGZsh{} nếu không cùng loài, chỉ thực hiện giao phối với xác suất `rmp`}
+    \PYG{k}{if} \PYG{n}{p1}\PYG{o}{.}\PYG{n}{skill\PYGZus{}factor} \PYG{o}{==} \PYG{n}{p2}\PYG{o}{.}\PYG{n}{skill\PYGZus{}factor} \PYG{o+ow}{or} \PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{\PYGZlt{}} \PYG{n}{rmp}\PYG{p}{:}
+      \PYG{n}{create\PYGZus{}offspring}\PYG{p}{(}\PYG{n}{population}\PYG{p}{,} \PYG{n}{p1}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} tạo con và thêm vào quần thể}
+    \PYG{k}{else}\PYG{p}{:}
+      \PYG{n}{create\PYGZus{}mutant}\PYG{p}{(}\PYG{n}{population}\PYG{p}{,} \PYG{n}{p1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} tạo con là các đột biến của}
+      \PYG{n}{create\PYGZus{}mutant}\PYG{p}{(}\PYG{n}{population}\PYG{p}{,} \PYG{n}{p2}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} hai cá thể cha mẹ}
+\end{Verbatim}

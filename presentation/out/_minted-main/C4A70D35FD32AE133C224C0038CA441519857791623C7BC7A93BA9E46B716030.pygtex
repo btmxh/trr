@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{random}
+
+\PYG{k}{def} \PYG{n+nf}{select\PYGZus{}parents}\PYG{p}{(}\PYG{n}{population}\PYG{p}{):}
+  \PYG{c+c1}{\PYGZsh{} lấy hai nhóm cho hai cá thể cha mẹ}
+  \PYG{n}{group\PYGZus{}1} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{population}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)}
+  \PYG{n}{group\PYGZus{}2} \PYG{o}{=} \PYG{n}{random}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{(}\PYG{n}{population}\PYG{p}{,} \PYG{n}{k}\PYG{p}{)}
+
+  \PYG{c+c1}{\PYGZsh{} trả lại hai cá thể tốt nhất của hai nhóm}
+  \PYG{k}{return} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{group\PYGZus{}1}\PYG{p}{,} \PYG{n}{key}\PYG{o}{=}\PYG{n}{fitness}\PYG{p}{),} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{group\PYGZus{}2}\PYG{p}{,} \PYG{n}{key}\PYG{o}{=}\PYG{n}{fitness}\PYG{p}{)}
+\end{Verbatim}

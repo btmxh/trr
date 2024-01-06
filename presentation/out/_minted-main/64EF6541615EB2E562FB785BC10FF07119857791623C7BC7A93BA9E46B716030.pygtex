@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{fitness}\PYG{p}{(}\PYG{n}{cycle}\PYG{p}{):}
+  \PYG{k}{return} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{length}\PYG{p}{(}\PYG{n}{cycle}\PYG{p}{[}\PYG{n}{i}\PYG{p}{],} \PYG{n}{cycle}\PYG{p}{[}\PYG{n}{i} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{])}
+             \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{cycle}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{))}
+\end{Verbatim}

@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mtea\PYGZus{}ad}\PYG{p}{():}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{n}{populations} \PYG{o}{=} \PYG{p}{[]}
+    \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+      \PYG{n}{offsprings} \PYG{o}{=} \PYG{n}{reproduction}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} tạo thế hệ con}
+      \PYG{n}{transfers} \PYG{o}{=} \PYG{n}{ad\PYGZus{}select}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} chọn T\PYGZus{}k}
+      \PYG{c+c1}{\PYGZsh{} thêm vào quần thể và chọn lọc}
+      \PYG{n}{task}\PYG{o}{.}\PYG{n}{population} \PYG{o}{+=} \PYG{n}{offsprings} \PYG{o}{+} \PYG{n}{transfers}
+      \PYG{n}{populations} \PYG{o}{+=} \PYG{p}{[}\PYG{n}{selection}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)]}
+      \PYG{c+c1}{\PYGZsh{} sau đó, cập nhật giá trị epsilon}
+      \PYG{n}{update\PYGZus{}epsilon}\PYG{p}{(}\PYG{n}{task}\PYG{p}{)}
+    \PYG{k}{yield} \PYG{n}{populations}
+\end{Verbatim}

@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{basic\PYGZus{}ea}\PYG{p}{():}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} trong mỗi thế hệ}
+    \PYG{n}{reproduce}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} thực hiện sinh sản}
+    \PYG{n}{selection}\PYG{p}{(}\PYG{n}{population}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} thực hiện chọn loc}
+    \PYG{k}{yield} \PYG{n}{population} \PYG{c+c1}{\PYGZsh{} trả lại quần thể sau mỗi bước lặp}
+\end{Verbatim}

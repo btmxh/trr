@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{ebs}\PYG{p}{():}
+  \PYG{n}{populations} \PYG{o}{=} \PYG{p}{[]}
+  \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+    \PYG{n}{offsprings}\PYG{p}{[}\PYG{n}{task}\PYG{p}{]} \PYG{o}{=} \PYG{n}{reproduce}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{ea}\PYG{p}{)}
+  \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} tìm bài toán chuyển giao tốt nhất}
+    \PYG{n}{transfer\PYGZus{}task} \PYG{o}{=} \PYG{n+nb}{max}\PYG{p}{(}\PYG{n}{tasks}\PYG{p}{,} \PYG{n}{key}\PYG{o}{=}\PYG{n}{r}\PYG{p}{[}\PYG{n}{task}\PYG{p}{])}
+    \PYG{n}{num\PYGZus{}offsprings} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{r}\PYG{p}{[}\PYG{n}{task}\PYG{p}{][}\PYG{n}{transfer\PYGZus{}task}\PYG{p}{]} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{offsprings}\PYG{p}{))}
+    \PYG{n}{offsprings}\PYG{p}{[}\PYG{n}{task}\PYG{p}{][}\PYG{o}{\PYGZhy{}}\PYG{n}{num\PYGZus{}offsprings}\PYG{p}{:]} \PYG{o}{=} \PYG{n}{offsprings}\PYG{p}{[}\PYG{n}{transfer\PYGZus{}task}\PYG{p}{][:}\PYG{n}{num\PYGZus{}offsprings}\PYG{p}{]}
+    \PYG{n}{task}\PYG{o}{.}\PYG{n}{population} \PYG{o}{+=} \PYG{n}{offsprings}\PYG{p}{[}\PYG{n}{task}\PYG{p}{]}
+    \PYG{n}{populations} \PYG{o}{+=} \PYG{p}{[}\PYG{n}{selection}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{ea}\PYG{p}{)]}
+    \PYG{n}{update\PYGZus{}rate}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} cập nhật các giá trị r[t1][t2]}
+  \PYG{k}{yield} \PYG{n}{populations}
+\end{Verbatim}

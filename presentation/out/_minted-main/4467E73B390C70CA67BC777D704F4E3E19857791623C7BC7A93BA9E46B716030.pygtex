@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{mfo}\PYG{p}{():}
+  \PYG{k}{while} \PYG{k+kc}{True}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} nếu vòng lặp này thực hiện chuyển giao tri thức}
+    \PYG{k}{if} \PYG{n}{culture\PYGZus{}tranmission}\PYG{p}{():}
+      \PYG{k}{yield} \PYG{n}{do\PYGZus{}culture\PYGZus{}tranmission}\PYG{p}{()} \PYG{c+c1}{\PYGZsh{} thực hiện chuyển giao tri thức}
+    \PYG{k}{else}\PYG{p}{:}
+      \PYG{c+c1}{\PYGZsh{} nếu không chuyển giao, chạy thuật toán đơn nhiệm}
+      \PYG{c+c1}{\PYGZsh{} một cách độc lập cho từng bài toán}
+      \PYG{n}{populations} \PYG{o}{=} \PYG{p}{[}\PYG{n+nb}{next}\PYG{p}{(}\PYG{n}{task}\PYG{o}{.}\PYG{n}{ea}\PYG{p}{)} \PYG{k}{for} \PYG{n}{task} \PYG{o+ow}{in} \PYG{n}{tasks}\PYG{p}{]}
+      \PYG{c+c1}{\PYGZsh{} trả lại quần thể}
+      \PYG{k}{yield} \PYG{n}{populations}
+\end{Verbatim}

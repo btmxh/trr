@@ -1,0 +1,390 @@
+\section{Các framework tiến hóa đa nhiệm} % (fold)
+\label{sec:Các framework tiến hóa đa nhiệm}
+
+\subsection{Mô hình chung} % (fold)
+\label{sub:Mô hình chung}
+
+\begin{frame}{Mô hình chung}
+Nhắc lại, thuật toán MFEA được phát triển từ cách chuyển bài toán đa
+nhiệm:
+\begin{align*}
+  \min &\, f_{1}(x_{1}), f_{2}(x_{2}), \ldots , f_{T}(x_{T})\\
+  \text{subject to}\, &x_{1} \in X_{1}, x_{2} \in X_{2},
+  \ldots , x_{T} \in X_{T}.
+\end{align*}
+Thành bài toán đơn nhiệm:
+\begin{align*}
+  \min &\, f(x) = f_{1}(x_{1})+ f_{2}(x_{2})+ \ldots +
+  f_{T}(x_{T})\\
+  \text{subject to}\, &x = (x_{1}, x_{2}, \ldots, x_{T}) \in X_{1} \times  X_{2}
+  \times  \ldots  \times X_{T}.
+\end{align*}
+Ở đây ta sẽ tiếp cận theo hướng ngây thơ còn lại: chia bài toán đa nhiệm thành
+\( T \) bài toán đơn nhiệm và phát triển lên để thu được các \textbf{framework
+tiến hóa đa nhiệm}.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mô hình chung}
+Như đã nói ở phần mở đầu về tiến hóa đa nhiệm, ta can thiệp vào quá trình
+chạy thuật toán để thực hiện chuyển giao tri thức:
+\begin{minted}[fontsize=\footnotesize]{python}
+def mfo():
+  while True:
+    # nếu vòng lặp này thực hiện chuyển giao tri thức
+    if culture_tranmission():
+      yield do_culture_tranmission() # thực hiện chuyển giao tri thức
+    else:
+      # nếu không chuyển giao, chạy thuật toán đơn nhiệm
+      # một cách độc lập cho từng bài toán
+      populations = [next(task.ea) for task in tasks]
+      # trả lại quần thể
+      yield populations
+\end{minted}
+
+Ở đây, điều kiện \( \texttt{culture\_tranmission()} \) có thể được cài đặt tùy ý.
+Chẳng hạn như ta có thể cho chuyển giao tri thức cứ \( \alpha \) thế hệ một lần
+(\( \texttt{gen \% alpha == 0} \)),
+hoặc dựa vào xác suất thông qua một biến ngẫu nhiên (\( \texttt{random.random()
+< p} \)).
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mô hình chung}
+Ta cũng có thể cho điều kiện chuyển giao tri thức phụ thuộc vào từng bài toán:
+\begin{minted}[fontsize=\footnotesize]{python}
+def mfo():
+  while True:
+    populations = []
+    for task in tasks:
+      if culture_tranmission(task):
+        populations += [do_culture_tranmission(task)]
+      else:
+        populations += [next(task.ea)]
+    yield populations
+\end{minted}
+
+Có thể thấy, cách làm hiện tại tách biệt giữa việc chuyển giao tri thức với chạy
+một thuật toán tiến hóa đơn nhiệm, nghĩa là ta có thể sử dụng các thuật giải
+khác nhau cho từng bài toán.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mô hình chung}
+  Một cách cụ thể để thực hiện chuyển giao tri thức là chuyển giao trực tiếp các
+  cá thể từ các quần thể khác sang quần thể của bài toán đang xét:
+  \begin{minted}{python}
+import random
+
+def do_culture_tranmission(task):
+  # quần thể gồm mọi cá thể trừ các cá thể của bài toán đang xét
+  pop_all = [x for transfer_task in tasks if transfer_task != task
+               for x in task.population]
+  # chọn lấy 100 cá thể ngẫu nhiên từ `pop_all`
+  task.population += random.sample(pop_all, 100)
+  return selction(task) # thực hiện chọn lọc
+  \end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mô hình chung}
+Ngoài cách chọn giữa chuyển giao tri thức hoặc chạy một vòng lặp đơn nhiệm, ta
+cũng có thể can thiệp vào quá trình chuyển giao tri thức bằng cách thêm các cá
+thể con sinh ra từ lai ghép khác loài vào thế hệ con sinh ra từ thuật toán đơn
+nhiệm.
+\begin{minted}[fontsize=\footnotesize]{python}
+def mfo():
+  while True:
+    populations = []
+    for task in tasks:
+      offsprings = reproduction(task) # lai ghép cùng loài
+      for transfer_task in tasks:
+        if task != transfer_task:
+          # tính số lượng cá thể con sinh ra từ lai ghép khác loài
+          num_offsprings = int(rmp * len(offsprings))
+          # thực hiện lai ghép khác loài, thêm các 
+          # cá thể con này vào mảng `offspring`
+          offsprings += interspecies_mating(task, transfer_task, num_offsprings)
+      task.population += offsprings
+      populations += selection(task.population)
+    yield populations
+\end{minted}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Mô hình chung}
+Ở đây, xác suất chuyển giao khác loài, biến \( rmp \), không nhất thiết phải
+giống nhau cho mọi cặp bài toán. Ta hoàn toàn thay thế nó bằng một ma trận \(
+RMP \), mã giả trên sử dụng một tham số chỉ để làm thuật toán dễ đọc hơn.
+
+Khi các xác suất \( rmp \) khác nhau và phụ thuộc vào từng cặp bài toán, ta có
+thể chỉ thực hiện lai ghép khác loài với bài toán \( \texttt{transfer\_task}
+\) có xác suất này lớn nhất.
+
+Trong thuật toán EBS của Liaw và Ting, ngoài việc chỉ chuyển giao với bài toán
+có xác suất \( rmp \) lớn nhất, còn có một khác biệt nhỏ là các cá thể con
+sinh ra từ lai ghép khác loài sẽ thay thế các cá thể cuối của mảng \(
+\texttt{offsprings} \):
+\begin{minted}{python}
+# thay `num_offsprings` phần tử cuối của mảng `offspring`
+# bởi kết quả trả lại ở vế phải
+offsprings[-num_offsprings:] = interspecies_mating(task, transfer_task,
+                                                   num_offsprings)
+\end{minted}
+\end{frame}
+% subsection Mô hình chung (end)
+
+\subsection{Chọn cá thể chuyển giao bằng phát hiện bất thường} % (fold)
+\label{sub:Chọn cá thể chuyển giao bằng phát hiện bất thường}
+
+\begin{frame}{Phát hiện bất thường}
+  Phát hiện bất thường là một cách phân loại dữ liệu trong học máy. Việc phân
+  biệt giữa các dữ liệu bình thường và bất thường là vô cùng quan trọng, vì các
+  dữ liệu bất thường không những không có đủ để có thể được xử lý như các dữ
+  liệu bình thường, mà nó còn làm lệch đi các giá trị được xử lý.
+
+  Trong tiến hóa đa nhiệm, ta có thể coi các bất thường là những cá thể có thể
+  chuyển giao nhiều thông tin di truyền xấu, nên ta cần hạn chế lai ghép khác
+  loài với các cá thể bất thường.
+
+  Để phát hiện sự bất thường, cách đơn giản nhất là sử dụng một phân phối xác
+  suất với hàm mật độ \( f(x) \) cho dữ liệu. Những giá trị \( x \) có \( f(x)
+  \) quá thấp sẽ bị coi là dữ liệu bất thường. Phân phối xác suất hay được sử
+  dụng ở đây chính là phân phối chuẩn nhiều biến \( \mathcal{N}(\mu, \Sigma) \).
+\end{frame}
+
+\begin{frame}{Chọn lọc cá thể chuyển giao dựa trên phát hiện bất thường}
+Sử dụng phương pháp phát hiện bất thường, khi ta chọn các cá thể để lai ghép
+khác loài, ta sẽ ưu tiên chọn những cá thể "bình thường nhất", nghĩa là các cá
+thể \( x \) sao cho \( f(x) \) lớn nhất.
+
+Thuật toán MTEA-AD của Wang \textit{et al.} chọn ra \( T_{k} \) là tập gồm có \(
+\varepsilon_{k} (|P| - |P_{k}|) \) cá thể
+có \( f(x) \) lớn nhất từ quần thể \( P \setminus P_{k} \), với \( P_{k} \) là
+quần thể của bài toán đang xét và \( P \) là quần thể tổng gồm tất cả các cá
+thể. Tham số \( \varepsilon_{k} \) sẽ được cập nhật dựa vào độ hiệu quả của chuyển
+giao tri thức:
+\[
+  \varepsilon_{k} = \frac{s_{k}}{m_{k}}
+,\]
+
+với \( s_{k} \) và \( m_{k} \) là số lượng cá thể trong và ngoài \( T_{k} \)
+được giữ lại sau bước chọn lọc.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Chọn lọc cá thể chuyển giao dựa trên phát hiện bất thường}
+  Thuật toán MTEA-AD thực hiện chuyển giao tri thức như sau:
+\begin{minted}[fontsize=\footnotesize]{python}
+def mtea_ad():
+  while True:
+    populations = []
+    for task in tasks:
+      offsprings = reproduction(task) # tạo thế hệ con
+      transfers = ad_select(task) # chọn T_k
+      # thêm vào quần thể và chọn lọc
+      task.population += offsprings + transfers 
+      populations += [selection(task)]
+      # sau đó, cập nhật giá trị epsilon
+      update_epsilon(task)
+    yield populations
+\end{minted}
+\end{frame}
+
+% subsection Chọn cá thể chuyển giao bằng phát hiện bất thường (end)
+
+\subsection{Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học} % (fold)
+\label{sub:Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học}
+
+\begin{frame}{Mối quan hệ các loài trong sinh học}
+Trong hệ sinh thái gồm rất nhiều loài sinh vật tương tác với nhau, các nhà sinh
+học đã đưa ra các loại mối quan hệ giữa hai cá thể khác loài \( a \) và \( b \),
+gồm có:
+\begin{itemize}
+\item Hỗ trợ (M): \( a \) có lợi với \( b \) và ngược lại.
+\item Hội sinh (O): \( a \) có lợi với \( b \), \( b \) không có lợi và không có
+  hại với \( a \).
+\item Ký sinh (P): \( a \) có lợi với \( b \) nhưng \( b \) có hại với \( a \).
+\item Trung lập (N): \( a \) không có hại, không có lợi với \( b \) và ngược lại.
+\item Chống cộng sinh (A): \( a \) không có lợi, không có hại với \( b \), nhưng \(
+  b \) có hại với \( a \).
+\item Cạnh tranh (C): \( a \) có hại với \( b \) và ngược lại.
+\end{itemize}
+
+Chú ý ở dây, các mối quan hệ hội sinh, ký sinh và chống cộng sinh là không đối
+xứng.
+\end{frame}
+
+\begin{frame}{Mối quan hệ các cá thể trong sinh học}
+Các định nghĩa trên có thể được viết lại dưới dạng các mối quan hệ giữa các loài
+trong một giải thuật tiến hóa đa nhiệm. Chẳng hạn, mối quan hệ giữa
+loài \( \tau_{1} \) và \( \tau_{2} \) \textbf{đối với một cá thể} \( x \) là
+hỗ trợ nếu \( x \) đều có lợi với \( \tau_{1} \) và \( \tau_{2} \).
+
+Bằng cách đếm số cá thể \( x \) thoả mãn điều kiện trên, ta có thể ước chừng
+được một cách tương đối rằng hai loài \( \tau_{1} \) và \( \tau_{2}  \) hỗ trợ
+nhau nhiều hay ít. So sánh số này với các số đếm thu được cho các mối quan hệ
+khác, ta có thể đánh giá được tính hiệu quả của việc chuyển giao tri thức như
+sau:
+\[
+  r = \frac{M + O + P}{M + O + P + A + C + N}
+.\] 
+Ở đây, các biến in hoa là số đếm cho các mối quan hệ tương ứng. \( M, O, P \)
+tượng trưng cho mối quan hệ hỗ trợ, hội sinh và ký sinh, là các mối quan hệ có
+ảnh hưởng tốt cho việc chuyển giao tri thức (từ loài \( \tau_{1} \) sang \(
+\tau_{2}\), không nhất thiết ngược lại).
+\end{frame}
+
+\begin{frame}{Mối quan hệ các cá thể trong sinh học}
+  Tuy nhiên, để xác định các mối quan hệ này, ta cần định nghĩa như thế nào là
+  có lợi và có hại.
+  
+  Liaw và Ting định nghĩa hai mối quan hệ này như sau:
+  \begin{itemize}
+  \item Có lợi: \( a \) có lợi với loài \( \tau \) nếu \( a \) nằm
+    trong\footnote{Do \( a \) không có loài \( \tau \) nên một cách chính xác
+    hơn để định nghĩa là \( a \) tốt hơn (hoặc tốt bằng) cá thể cuối cùng thuộc top \(
+  \mathcal{B}\% \) của loài này.} top \(
+    \mathcal{B}\%\) các cá thể tốt nhất của loài này.
+  \item Có hại: \( a \) có hại với loài \( \tau \) nếu \( a \) nằm trong top \(
+    \mathcal{H}\% \) các cá thể kém nhất của loài này.
+  \end{itemize}
+
+  Các tham số \( \mathcal{B} \) và \( \mathcal{H} \) được gọi là hệ số có lợi và
+  hệ số có hại.
+\end{frame}
+\begin{frame}[fragile]
+\frametitle{Thuật toán EBS}
+\begin{minted}[fontsize=\footnotesize]{python}
+def ebs():
+  populations = []
+  for task in tasks:
+    offsprings[task] = reproduce(task.ea)
+  for task in tasks:
+    # tìm bài toán chuyển giao tốt nhất
+    transfer_task = max(tasks, key=r[task])
+    num_offsprings = int(r[task][transfer_task] * len(offsprings))
+    offsprings[task][-num_offsprings:] = offsprings[transfer_task][:num_offsprings]
+    task.population += offsprings[task]
+    populations += [selection(task.ea)]
+    update_rate() # cập nhật các giá trị r[t1][t2]
+  yield populations
+\end{minted}
+
+Ở đây, hiệu quả chuyển giao (\( \texttt{r[task][transfer\_task]} \)) được sử
+dụng để chọn ra bài toán tốt nhất để chuyển giao và số lượng cá thể con được
+chuyển giao. Ta hoàn toàn cũng có thể trực tiếp chuyển giao cá thể cha mẹ thay
+vì chuyển giao các cá thể con.
+\end{frame}
+% subsection Cập nhật xác suất chuyển giao dựa trên quan hệ sinh học (end)
+
+\subsection{Cập nhật xác suất chuyển giao dựa trên nhật ký} % (fold)
+\label{sub:Cập nhật xác suất chuyển giao dựa trên nhật ký}
+
+\begin{frame}{Nhật ký và so sánh nhật ký}
+Nhật ký của một loài là một tập các cá thể của loài này xuyên suốt quá trình
+thuật toán được chạy. Nó bao gồm các cá thể của thế hệ hiện tại và các thế hệ
+trước đó của loài.
+
+Ý tưởng của cách cập nhật xác suất này là so sánh giữa các nhật ký. Cách làm của
+Chen \textit{et al.} là sử dụng phân phối chuẩn nhiều biến và tính độ phân kỳ
+Kullback-Leibler giữa các phân phối. Chẳng hạn, với hai quần thể \( P_{1} \) và
+\( P_{2} \), ta tính kì vọng \( \mu_{1}, \mu_{2} \) và ma trận hiệp phương sai
+\( \Sigma_{1}, \Sigma_{2} \). Khi đó, độ phân kỳ giữa hai phân phối xác suất
+tượng trưng cho hai quần thể là:
+\[
+  D_{KL}(P_{1}\mid \mid P_{2}) = \frac{1}{2} \left(
+  \operatorname{tr}(\Sigma_{2}^{-1}\Sigma_{1}) +
+(\mu_{2}-\mu_{1})^{T}\Sigma_{1}^{-1}(\mu_{2}-\mu_{1}) + \log
+\frac{\operatorname{det} \Sigma_{2}}{\operatorname{det} \Sigma_{1}} - D \right) 
+.\] 
+Do độ phân kỳ Kullback-Leibler không đối xứng, nên ta cần đối xứng hóa như sau:
+\[
+  \operatorname{Sim}(P_{1}, P_{2}) = \frac{1}{2} \left( D_{KL}(P_{1}\mid \mid
+  P_{2}) + D_{KL}(P_{2}\mid \mid P_{1}) \right) 
+.\] 
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Nhật ký và so sánh nhật ký}
+  Sau mỗi thế hệ, ta sẽ tiến hành cập nhật nhật ký. Để nhật ký chứa cả các cá
+  thể từ thế hệ hiện tại và các thế hệ trước, chẳng hạn, thuật toán MaTEA thực
+  hiện như sau:
+  \begin{minted}[fontsize=\footnotesize]{python}
+import random
+
+def update_archive(task):
+  for x in task.population: # lặp với mọi cá thể
+    # với xác suất `update_rate`, cho cá thể vào nhật ký
+    if random.random() < update_rate: 
+      if task.archive.full(): # nếu nhệt ký đầy, thay thế cá thể ngẫu nhiên
+        i = random.choice(range(len(task.archive)))
+        task.archive[i] = x
+      else: # nếu chưa đầy thì thêm vào nhật ký
+        task.archive += [x]
+  \end{minted}
+\end{frame}
+\begin{frame}{Adaptive Reward Strategy}
+  Chỉ so sánh giữa các nhật ký để tính xác suất chuyển giao sẽ không phân biệt
+  được giữa chuyển giao tri thức tốt và tri thức xấu. Do đó, ta sử dụng thêm một
+  biến \( R \) cho mỗi cặp bài toán để đánh giá tính tốt xấu của việc chuyển
+  giao tri thức. Biến này sẽ được tăng nếu như việc chuyển giao là tốt, bị giảm
+  nếu chuyển giao là xấu:
+  \[
+    R \coloneqq \begin{cases}
+      R / \lambda, &\text{ nếu chuyển giao tri thức tốt } \\
+      R \cdot \lambda, &\text{ nếu chuyển giao tri thức xấu }
+    \end{cases}
+  .\] 
+  \( \lambda \) là một hằng số trong \( [0, 1] \).
+
+  Để quyết định chuyển giao là tốt hay xấu, ta có thể so sánh giữa các cá thể
+  trong quần thể của bài toán với các cá thể chuyển giao. Thuật toán MaTEA của
+  Chen \textit{et al.} so sánh \( p_{best} \), cá thể tốt nhất của quần thể bài
+  toán với các cá thể \( o \) sinh ra từ lai ghép chuyển giao tri thức. Chuyển
+  giao tri thức được coi là xấu nếu \( p_{best} \) tốt hơn mọi \( o \) và là tốt
+  nếu ngược lại.
+\end{frame}
+
+\begin{frame}{Adaptive Reward Strategy}
+  Lấy ý tưởng từ Reinforcement Learning, với mỗi cặp bài toán, ta sẽ có một biến
+  điểm là \( score \). Biến này sẽ được cập nhật như sau:
+  \[
+    score \coloneqq \rho \cdot score + \frac{R}{\log Sim(P_{1}, P_{2})}
+  .\] 
+  \( \rho \) là một hằng số trong \( [0, 1] \).
+
+  Các biến điểm này có thể được sử dụng để so sánh hiệu quả chuyển giao tri thức
+  giữa các bài toán với nhau. Tuy nhiên, biến này chỉ mang tính tương đối (chỉ
+  có ý nghĩa khi được so sánh với các biến điểm của các cặp bài toán khác).
+
+  Trong thuật toán MaTEA, các biến điểm này được sử dụng làm trọng số để chọn
+  bài toán chuyển giao theo cách Roulette Wheel Selection, nhưng nói chung là
+  ta cũng có thể sử dụng các cách khác. Cách làm như thế này được Chen
+  \textit{et al.} gọi là \textbf{Adaptive Reward Strategy}.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Thuật toán MaTEA}
+\begin{minted}[fontsize=\footnotesize]{python}
+def matea():
+  while True:
+    populations = []
+    for task in tasks:
+      if random.random() < alpha:
+        # chạy một vòng lặp đơn nhiệm
+        populations += [next(task.ea)]
+      else:
+        # chọn bài toán chuyển giao tri thức
+        transfer_task = roulette_select(tasks, key=score[task])
+        # lai ghép chuyển giao tri thức
+        offsprings = knowledge_transfer_crossover(task, transfer_task)
+        task.population += offsprings
+        population += [selection(task)]
+        update_scores(task, transfer_task) # cập nhật score[task][transfer_task]
+      update_archive(task) # cập nhật nhật ký
+\end{minted}
+\end{frame}
+% subsection Cập nhật xác suất chuyển giao dựa trên nhật ký (end)
+
+% section Các framework tiến hóa đa nhiệm (end)

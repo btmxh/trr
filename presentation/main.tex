@@ -1,0 +1,111 @@
+% !TEX program = xelatex
+\documentclass[aspectratio=169]{beamer}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{quiver}
+\usepackage{calc}
+\usefonttheme[onlymath]{serif}
+\usepackage{polyglossia}
+\setmainlanguage{vietnamese}
+\usepackage[outputdir=out]{minted}
+\usepackage{amsthm,amsmath,amssymb}
+\newtheorem{thm}{Định lý}
+\newtheorem{defn}{Định nghĩa}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{mathtools}
+
+\setbeamertemplate{theorems}[numbered]
+
+\setbeamerfont{footnote}{size=\tiny}
+%% TYPESET
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\makeatother
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+\newcommand{\gr}{\operatorname{gr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\toto}{\rightrightarrows}%
+\newcommand{\F}{\Mathcal{F}}%
+\newcommand{\K}{\mathbb{K}}%
+\newcommand{\R}{\mathbb{R}}%
+\def\C{\mathbb{C}}%
+\newcommand{\dom}{\operatorname{dom}}%
+\newcommand{\im}{\operatorname{im}}%
+\newcommand{\g}{\mathcal{g}}%
+\global\long\def\MP{\text{mp}}%
+
+\newcommand{\Image}[1]{%
+	\sbox0{\includegraphics[height=0.65\paperheight]{#1}}%
+	\ifdim\wd0 < \textwidth
+	\includegraphics[height=0.65\paperheight]{#1}%
+	\else
+	\includegraphics[width=\textwidth]{#1}%
+	\fi%
+}
+
+\newif\iffirsttoc
+\firsttoctrue
+\AtBeginSubsection[]
+{
+  \parskip=0pt
+  \begin{frame}[allowframebreaks]
+        \frametitle{Mục lục}  
+        \iffirsttoc
+            \tableofcontents
+            \global\firsttocfalse
+        \else
+            \tableofcontents[currentsection,
+            % hideothersubsections,
+            subsectionstyle=show/shaded/hide,
+            subsubsectionstyle=show/show/show/hide
+            ]
+        \fi
+    \end{frame} 
+  \parskip=1em
+}
+\setbeamertemplate{caption}[numbered]
+
+% \usetheme{hust}
+% \titlegraphic{\includegraphics[height=\logoheight]{figures/sami-v2.pdf}}
+\title{Báo cáo}
+% \subtitle{\textbf{\LARGE Tìm bán kính điều khiển có cấu trúc của hệ chịu\\đa nhiễu sử dụng các toán tử tuyến tính đa trị}}
+\subtitle{\textbf{Các thuật toán cơ bản của Tiến hóa Đa nhiệm
+    \\(Evolutionary Multi-Task Optimization)}}
+
+\author{Nhóm 1 - CTTN Khoa học Máy tính K67}
+\iffalse
+{Nguyễn Văn An - ...\\Ngô Duy Anh - 20200069\\Nguyễn Anh Bảo - \\Đặng
+Tiến Cường - a}
+\fi
+\date{Tháng 1, 2024}
+
+\begin{document}
+\begin{frame}[noframenumbering]
+	\titlepage
+\end{frame}
+
+\input{main.parts/intro}
+\input{main.parts/GA}
+\input{main.parts/DE}
+\input{main.parts/MFO}
+\input{main.parts/MFEA}
+\input{main.parts/frameworks}
+
+\section{Tài liệu tham khảo}
+\begin{frame}[allowframebreaks]{Tài liệu tham khảo}
+    \nocite{*}
+    \bibliographystyle{plainnat}
+    \bibliography{main.refs.bib}
+\end{frame}
+
+\begin{frame}{~}
+    % \Large \color{hustred}{Cảm ơn mọi người đã chú ý lắng nghe!}
+\end{frame}
+
+\end{document}

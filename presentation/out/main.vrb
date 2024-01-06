@@ -1,0 +1,19 @@
+\frametitle{Thuật toán MaTEA}
+\begin{minted}[fontsize=\footnotesize]{python}
+def matea():
+  while True:
+    populations = []
+    for task in tasks:
+      if random.random() < alpha:
+        # chạy một vòng lặp đơn nhiệm
+        populations += [next(task.ea)]
+      else:
+        # chọn bài toán chuyển giao tri thức
+        transfer_task = roulette_select(tasks, key=score[task])
+        # lai ghép chuyển giao tri thức
+        offsprings = knowledge_transfer_crossover(task, transfer_task)
+        task.population += offsprings
+        population += [selection(task)]
+        update_scores(task, transfer_task) # cập nhật score[task][transfer_task]
+      update_archive(task) # cập nhật nhật ký
+\end{minted}
